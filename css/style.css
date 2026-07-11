@@ -611,22 +611,23 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 .logos-wall {
   display: grid; grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid rgba(40,36,30,.13);
-  border-left: 1px solid rgba(40,36,30,.13);
-  border-radius: 4px; overflow: hidden;
-  background: radial-gradient(120% 130% at 50% 38%, #f6f2ea, #e9e2d5);
+  border-top: 1px solid rgba(40,36,30,.09);
+  border-left: 1px solid rgba(40,36,30,.09);
+  border-radius: 6px; overflow: hidden;
+  background: linear-gradient(180deg, #fdfaf5 0%, #f8f4ed 100%);   /* creme mais claro que o fundo */
+  box-shadow: 0 22px 54px -34px rgba(40,30,18,.3);
 }
 .logo-cell {
   display: flex; align-items: center; justify-content: center;
-  min-height: clamp(84px,8vw,108px); padding: 20px 22px;
-  border-right: 1px solid rgba(40,36,30,.13);
-  border-bottom: 1px solid rgba(40,36,30,.13);
+  min-height: clamp(100px,9.5vw,128px); padding: 22px 24px;
+  border-right: 1px solid rgba(40,36,30,.09);
+  border-bottom: 1px solid rgba(40,36,30,.09);
   transition: background .4s var(--ease);
 }
-.logo-cell:hover { background: rgba(214,154,78,.06); }
+.logo-cell:hover { background: rgba(214,154,78,.05); }
 .logo-cell img {
-  max-height: 34px; max-width: 80%; width: auto; height: auto; object-fit: contain;
-  opacity: .58; filter: grayscale(.3);
+  max-height: clamp(40px,4.4vw,54px); max-width: 76%; width: auto; height: auto; object-fit: contain;
+  opacity: .62; filter: grayscale(.25);
   transition: opacity .4s var(--ease), filter .4s var(--ease);
 }
 .logo-cell:hover img { opacity: 1; filter: grayscale(0); }
