@@ -179,30 +179,30 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* lado direito — obra à direita, full-bleed */
+/* imagem de obra — fundo full-bleed do hero (composição: escuro à esquerda + prédio à direita) */
 .hero-media {
   position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 56%;
+  inset: 0;
   z-index: 0;
 }
 .hero-photo {
   position: absolute;
   inset: 0;
-  /* Placeholder cinematográfico. Troca: definir --hero-photo:url('assets/img/hero-obra.jpg') */
+  /* imagem de teste (dados já embutidos na foto). Troca: alterar --hero-photo */
+  --hero-photo: url('../assets/img/Hero-obra.png');
   background-image: var(--hero-photo,
     radial-gradient(78% 58% at 72% 82%, rgba(214,154,78,.16), transparent 58%),
     linear-gradient(180deg, #191a20 0%, #101117 55%, #0a0b0e 100%));
   background-size: cover;
-  background-position: center right;
+  background-position: center;
 }
-/* dissolve a borda esquerda da imagem no escuro do bloco (copy fica limpa) */
+/* reforça o escuro à esquerda para a copy manter contraste máximo */
 .hero-media-fade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, var(--hero) 0%, rgba(11,12,16,.92) 18%, rgba(11,12,16,.4) 44%, transparent 72%),
-    linear-gradient(180deg, transparent 58%, rgba(8,9,12,.55) 100%);
+    linear-gradient(90deg, rgba(8,9,12,.94) 0%, rgba(8,9,12,.72) 22%, rgba(8,9,12,.22) 46%, transparent 64%),
+    linear-gradient(180deg, transparent 62%, rgba(8,9,12,.5) 100%);
 }
 
 /* dados integrados à estrutura da obra (discretos, secundários) */
