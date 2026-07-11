@@ -21,5 +21,11 @@ PROJETO VN SITE/
 Definida seção por seção pelo responsável do projeto. Nada é inventado:
 tokens (cores/tipografia) e layout entram conforme a especificação de cada seção.
 
+## Imagens (fluxo de placeholder)
+As fotos reais entram depois. Enquanto isso, cada imagem usa um placeholder
+temporário (`.img-ph`). Para trocar, basta:
+- soltar o arquivo real em `assets/img/` e apontar a `<img>` para ele, ou
+- se a `<img>` já apontar para o caminho final, só sobrescrever o arquivo.
+
 ## Referência
 `Site VN.pdf` (mockup do layout premium).

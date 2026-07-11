@@ -51,6 +51,39 @@ select {
   /* Cores, fontes e espaçamentos entram aqui quando definidos. */
 }
 
+/* ---------- Placeholder de imagem (TEMPORÁRIO) ----------
+   Enquanto as fotos reais não chegam, usamos este bloco.
+   Uso:  <div class="img-ph" data-label="HERO" style="aspect-ratio:16/9"></div>
+   Troca depois: substituir a <div> por <img src="assets/img/arquivo.jpg">
+   (ou usar <img> desde já apontando para o caminho final e só soltar o arquivo).
+   Este bloco será removido quando não houver mais placeholders. */
+.img-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    repeating-linear-gradient(45deg,
+      #e7e7ea, #e7e7ea 11px,
+      #e0e0e4 11px, #e0e0e4 22px);
+  color: #8a8a92;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+.img-ph::after {
+  content: attr(data-label);
+  font: 600 12px/1.4 system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.75;
+}
+
 /* ---------- Seções ----------
    Header, Hero, e demais seções serão adicionados abaixo,
    um bloco por vez.
