@@ -542,11 +542,11 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* mosaico assimétrico */
 .seg-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr;
-  grid-template-rows: 0.92fr 1.08fr;
-  gap: 16px;
-  height: clamp(460px, 54vw, 620px);
-  margin-top: clamp(30px,4vw,52px);
+  grid-template-columns: 1.95fr 1fr 1fr;   /* esquerda ~48% | direita 26% + 26% */
+  grid-template-rows: 0.82fr 1fr;           /* Logística mais baixa; base maior */
+  gap: 20px;
+  height: clamp(430px, 50vw, 560px);
+  margin-top: clamp(26px,3.4vw,44px);
 }
 .seg-1 { grid-column: 1;     grid-row: 1 / 3; }
 .seg-2 { grid-column: 2 / 4; grid-row: 1; }
@@ -562,16 +562,24 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .seg-card:hover { border-color: rgba(214,154,78,.4); box-shadow: 0 28px 56px -28px rgba(30,22,14,.62); }
 /* imagem (placeholder cinematográfico; trocar por foto real depois) */
-.seg-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .9s var(--ease); }
+.seg-img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(.66) contrast(1.05) saturate(.86) sepia(.18);   /* color grading escuro/quente */
+  transition: transform .9s var(--ease), filter .5s var(--ease);
+}
 .seg-card:hover .seg-img { transform: scale(1.05); }
-.seg-1 .seg-img { background-image: radial-gradient(100% 55% at 55% 0%, rgba(214,154,78,.14), transparent 60%), linear-gradient(160deg,#39301f 0%,#221a11 45%,#12100c 100%); }
-.seg-2 .seg-img { background-image: radial-gradient(90% 70% at 80% 0%, rgba(224,164,86,.20), transparent 58%), linear-gradient(150deg,#4a3c26 0%,#241c12 55%,#14100b 100%); }
-.seg-3 .seg-img { background-image: radial-gradient(90% 60% at 40% 0%, rgba(190,150,90,.10), transparent 60%), linear-gradient(160deg,#332a20 0%,#1d160f 55%,#100c08 100%); }
-.seg-4 .seg-img { background-image: radial-gradient(90% 60% at 60% 0%, rgba(160,150,120,.10), transparent 60%), linear-gradient(165deg,#2b2820 0%,#181410 50%,#0e0b08 100%); }
-/* overlay escuro em degradê (base) */
+/* imagens temporárias (trocar depois — mesmas classes, só mudar a url) */
+.seg-1 .seg-img { background-image: url('../assets/img/segment-edificacoes-real.jpeg'); }
+.seg-2 .seg-img { background-image: url('../assets/img/segment-logistica-real.jpeg'); }
+.seg-3 .seg-img { background-image: url('../assets/img/segment-infraestrutura-real.jpeg'); }
+.seg-4 .seg-img { background-image: url('../assets/img/segment-complexas-real.jpeg'); background-position: center; }
+/* overlay: escurece o card todo (unifica o grading) + base forte para o texto */
 .seg-shade {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.55) 26%, rgba(8,6,4,.08) 52%, transparent 70%);
+  background:
+    linear-gradient(to top, rgba(6,5,3,.95) 0%, rgba(6,5,3,.6) 24%, rgba(8,6,3,.16) 48%, transparent 72%),
+    linear-gradient(180deg, rgba(16,10,5,.34), rgba(16,10,5,.34));
 }
 /* conteúdo no canto inferior esquerdo */
 .seg-body { position: absolute; left: 0; bottom: 0; z-index: 2; padding: clamp(18px,2vw,26px); max-width: 92%; }
