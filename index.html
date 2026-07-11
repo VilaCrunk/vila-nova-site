@@ -3,25 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vila Nova</title>
-  <meta name="description" content="">
+  <title>Vila Nova — Planejamento que protege resultados</title>
+  <meta name="description" content="Clareza executiva, governança e controle de prazo para obras complexas.">
 
-  <!-- Fontes: a definir quando a direção visual da tipografia for fornecida -->
+  <!-- ativa o modo JS (reveal); sem JS o conteúdo aparece normalmente -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Fontes: Syne (display) + Hanken Grotesk (corpo) — identidade VN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- ============================================================
-       ESTRUTURA DO SITE — seções serão implementadas uma a uma,
-       conforme a direção visual for fornecida seção por seção.
-       Nenhum layout/estilo foi definido ainda.
+       HEADER — a definir (direção ainda não fornecida)
        ============================================================ -->
 
-  <!-- HEADER      -->
-  <!-- HERO        -->
-  <!-- (seções)    -->
-  <!-- FOOTER      -->
+  <!-- ============================================================
+       HERO + RÉGUA DE EXPERIÊNCIA
+       ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-block">
+
+      <div class="hero-main">
+
+        <!-- Lado esquerdo: copy limpa, contraste máximo -->
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Planejamento que protege resultados</p>
+          <h1 class="hero-headline reveal">Clareza executiva para obras que não podem perder o controle.</h1>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#contato">
+              Solicitar diagnóstico
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lado direito: obra em construção (placeholder p/ foto real) + dados integrados -->
+        <div class="hero-media">
+          <!-- Trocar depois: definir --hero-photo:url('assets/img/hero-obra.jpg') no .hero-photo,
+               ou substituir a div por <img src="assets/img/hero-obra.jpg" class="hero-photo"> -->
+          <div class="hero-photo" role="img" aria-label="Obra em construção — imagem a definir"></div>
+          <div class="hero-media-fade" aria-hidden="true"></div>
+
+          <!-- Dados integrados à estrutura da obra (discretos, secundários) -->
+          <div class="hero-data" aria-hidden="true">
+            <div class="hd hd-1"><span class="hd-line"></span><span class="hd-label">Prazo <b>78%</b></span></div>
+            <div class="hd hd-2"><span class="hd-line"></span><span class="hd-label">Risco <b>Médio</b></span></div>
+            <div class="hd hd-3"><span class="hd-line"></span><span class="hd-label">Custo <b>92%</b></span></div>
+            <div class="hd hd-4"><span class="hd-line"></span><span class="hd-label">Avanço <b>64%</b></span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Régua de experiência: integrada à base do bloco escuro -->
+      <div class="hero-ruler reveal">
+        <div class="ruler-track">
+        <div class="metric">
+          <span class="m-num">15<i>+</i></span>
+          <span class="m-desc">Anos de experiência em gestão de obras e planejamento</span>
+        </div>
+        <div class="metric">
+          <span class="m-num">100<i>+</i></span>
+          <span class="m-desc">Projetos planejados, acompanhados e reorganizados</span>
+        </div>
+        <div class="metric">
+          <span class="m-num">R$ 1Bi<i>+</i></span>
+          <span class="m-desc">Em obras com atuação direta ou consultiva</span>
+        </div>
+        <div class="metric">
+          <span class="m-num">Brasil</span>
+          <span class="m-desc">Atendimento nacional em infraestrutura, logística e construção</span>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- (próximas seções entram abaixo) -->
+  <!-- FOOTER — a definir -->
 
   <script src="js/main.js"></script>
 </body>

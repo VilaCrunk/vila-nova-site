@@ -46,9 +46,268 @@ select {
   color: inherit;
 }
 
-/* ---------- Design tokens (a preencher) ---------- */
+/* ---------- Design tokens ----------
+   Derivados da direção do HERO: escuro, cinematográfico, âmbar discreto. */
 :root {
-  /* Cores, fontes e espaçamentos entram aqui quando definidos. */
+  /* superfícies escuras */
+  --page:        #08090b;   /* fundo da página (mostra os cantos arredondados do bloco) */
+  --hero:        #0b0c10;   /* base escura do bloco hero */
+  --surface:     #101218;
+
+  /* acento âmbar (discreto, sem neon) */
+  --amber:       #d69a4e;
+  --amber-bright:#e7ac60;
+  --amber-line:  rgba(214,154,78,.55);
+
+  /* texto */
+  --offwhite:    #ece7de;   /* números / texto claro */
+  --headline:    #f6f2ec;   /* headline — contraste máximo */
+  --warm-gray:   #9a9187;   /* texto secundário */
+  --warm-dim:    #6f685f;
+
+  /* linhas / divisórias */
+  --line:        rgba(255,255,255,.09);
+
+  /* tipografia */
+  --font-display:'Syne', sans-serif;
+  --font-body:   'Hanken Grotesk', sans-serif;
+
+  /* layout */
+  --maxw:        1280px;
+  --gutter:      clamp(24px, 5vw, 64px);
+  --ease:        cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------- Base ---------- */
+body {
+  font-family: var(--font-body);
+  background: var(--page);
+  color: var(--offwhite);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  padding: 16px 30px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .4s var(--ease), background .4s var(--ease),
+              color .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--amber-bright), var(--amber));
+  color: #1b1206;
+  box-shadow: 0 14px 34px -16px rgba(214,154,78,.55);
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:hover svg { transform: translateX(3px); transition: transform .4s var(--ease); }
+
+/* ---------- Reveal (entrada) ----------
+   Só esconde quando o JS está ativo (html.js). Sem JS, conteúdo aparece. */
+html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+html.js .reveal.in { opacity: 1; transform: none; }
+
+/* =============================================================
+   HERO + RÉGUA DE EXPERIÊNCIA
+   ============================================================= */
+.hero { position: relative; }
+
+.hero-block {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 34px 34px;
+  overflow: hidden;
+  background:
+    radial-gradient(115% 80% at 82% 26%, #15171d 0%, transparent 56%),
+    linear-gradient(180deg, #0e1014 0%, var(--hero) 62%, #090a0d 100%);
+  padding-top: clamp(40px, 6vh, 68px);
+}
+
+/* ----- área principal ----- */
+.hero-main {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* lado esquerdo — copy limpa, contraste máximo */
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  width: min(100%, var(--maxw));
+  margin: 0 auto;
+  padding: clamp(48px, 8vh, 96px) var(--gutter);
+}
+/* mantém a copy na zona escura (à esquerda + borda dissolvida da imagem) */
+.hero-copy > * { max-width: min(600px, 48vw); }
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3.3vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  color: var(--headline);
+  text-wrap: balance;
+  margin: 22px 0 34px;
+}
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* lado direito — obra à direita, full-bleed */
+.hero-media {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 56%;
+  z-index: 0;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  /* Placeholder cinematográfico. Troca: definir --hero-photo:url('assets/img/hero-obra.jpg') */
+  background-image: var(--hero-photo,
+    radial-gradient(78% 58% at 72% 82%, rgba(214,154,78,.16), transparent 58%),
+    linear-gradient(180deg, #191a20 0%, #101117 55%, #0a0b0e 100%));
+  background-size: cover;
+  background-position: center right;
+}
+/* dissolve a borda esquerda da imagem no escuro do bloco (copy fica limpa) */
+.hero-media-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--hero) 0%, rgba(11,12,16,.92) 18%, rgba(11,12,16,.4) 44%, transparent 72%),
+    linear-gradient(180deg, transparent 58%, rgba(8,9,12,.55) 100%);
+}
+
+/* dados integrados à estrutura da obra (discretos, secundários) */
+.hero-data { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hd {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  opacity: 0;
+  animation: hdIn .9s var(--ease) forwards;
+}
+.hd::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(214,154,78,.14);
+  flex: 0 0 5px;
+}
+.hd-line { width: 30px; height: 1px; background: linear-gradient(90deg, var(--amber-line), transparent); }
+.hd-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: rgba(236,231,222,.6);
+  white-space: nowrap;
+}
+.hd-label b { color: var(--amber-bright); font-weight: 600; }
+/* posições — anotações espalhadas pela estrutura, sem competir com a headline */
+.hd-1 { top: 27%; left: 18%; animation-delay: .7s; }
+.hd-2 { top: 45%; left: 44%; animation-delay: .84s; }
+.hd-3 { top: 63%; left: 22%; animation-delay: .98s; }
+.hd-4 { top: 76%; left: 50%; animation-delay: 1.12s; }
+@keyframes hdIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ----- régua de experiência (base do bloco) ----- */
+.hero-ruler {
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.022), rgba(0,0,0,.22));
+  backdrop-filter: blur(6px);
+}
+.ruler-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(100%, var(--maxw));
+  margin: 0 auto;
+  padding: clamp(24px, 3.2vw, 34px) var(--gutter);
+}
+.metric { padding: 0 clamp(16px, 2vw, 30px); border-left: 1px solid var(--line); }
+.metric:first-child { border-left: 0; padding-left: 0; }
+.m-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3.3vw, 44px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--offwhite);
+}
+.m-num i { color: var(--amber); font-style: normal; }
+.m-desc {
+  display: block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--warm-gray);
+  max-width: 210px;
+}
+
+/* =============================================================
+   RESPONSIVO
+   ============================================================= */
+@media (max-width: 900px) {
+  .hero-block { min-height: auto; border-radius: 0 0 24px 24px; }
+  .hero-main { min-height: 78vh; }
+  /* imagem vira fundo escurecido; copy por cima */
+  .hero-media { width: 100%; }
+  .hero-media-fade {
+    background:
+      linear-gradient(180deg, rgba(9,10,13,.68) 0%, rgba(9,10,13,.82) 60%, rgba(9,10,13,.92) 100%),
+      linear-gradient(90deg, rgba(11,12,16,.7) 0%, rgba(11,12,16,.35) 100%);
+  }
+  .hero-data { display: none; }               /* sem poluição no mobile */
+  .hero-copy > * { max-width: 34rem; }        /* copy usa mais largura no mobile */
+  .ruler-track { grid-template-columns: repeat(2, 1fr); gap: 30px 0; }
+  .metric { border-left: 0; padding: 0 0 0 22px; }
+  .metric:nth-child(odd) { padding-left: 0; }
+  .metric:nth-child(even) { border-left: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .hero-copy { padding-block: 64px; }
+  .hero-headline { font-size: clamp(30px, 8vw, 40px); }
+  .btn { width: 100%; justify-content: center; }
+}
+
+/* acessibilidade — reduz movimento */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hd { opacity: 1; animation: none; }
+  * { scroll-behavior: auto; }
 }
 
 /* ---------- Placeholder de imagem (TEMPORÁRIO) ----------
