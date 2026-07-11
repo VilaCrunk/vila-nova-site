@@ -598,8 +598,47 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .seg-card:hover .seg-go svg { transform: translateX(3px); transition: transform .4s var(--ease); }
 
 /* =============================================================
+   PROVA SOCIAL — logos de organizações (fundo sem grade)
+   ============================================================= */
+.logos { background: var(--ivory); }
+.logos-inner { max-width: var(--maxw); margin: 0 auto; padding: clamp(56px,7vw,90px) var(--gutter); }
+.logos-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 32px; margin-bottom: clamp(24px,2.6vw,36px);
+}
+.logos-eyebrow { color: var(--amber-deep); letter-spacing: .16em; font-size: 11px; max-width: 62ch; }
+.logos-support { max-width: 300px; font-size: 13px; line-height: 1.55; color: var(--charcoal-soft); text-align: right; flex: 0 0 auto; }
+
+.logos-wall {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(40,36,30,.13);
+  border-left: 1px solid rgba(40,36,30,.13);
+  border-radius: 4px; overflow: hidden;
+  background: radial-gradient(120% 130% at 50% 38%, #f6f2ea, #e9e2d5);
+}
+.logo-cell {
+  display: flex; align-items: center; justify-content: center;
+  min-height: clamp(84px,8vw,108px); padding: 20px 22px;
+  border-right: 1px solid rgba(40,36,30,.13);
+  border-bottom: 1px solid rgba(40,36,30,.13);
+  transition: background .4s var(--ease);
+}
+.logo-cell:hover { background: rgba(214,154,78,.06); }
+.logo-cell img {
+  max-height: 34px; max-width: 80%; width: auto; height: auto; object-fit: contain;
+  opacity: .58; filter: grayscale(.3);
+  transition: opacity .4s var(--ease), filter .4s var(--ease);
+}
+.logo-cell:hover img { opacity: 1; filter: grayscale(0); }
+
+/* =============================================================
    RESPONSIVO
    ============================================================= */
+@media (max-width: 860px) {
+  .logos-head { flex-direction: column; gap: 12px; }
+  .logos-support { text-align: left; max-width: 420px; }
+  .logos-wall { grid-template-columns: repeat(3, 1fr); }   /* 15 logos = 5 linhas */
+}
 @media (max-width: 860px) {
   .seg-grid {
     grid-template-columns: 1fr;
