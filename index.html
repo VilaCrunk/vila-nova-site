@@ -28,9 +28,16 @@
   <section class="hero" id="inicio">
     <div class="hero-block">
 
-      <div class="hero-main">
+      <!-- Fundo full-bleed: obra cobre todo o bloco (inclusive atrás da régua).
+           Trocar imagem: alterar --hero-photo em .hero-photo (css).
+           Dados (Prazo/Risco/Custo/Avanço) estão embutidos na própria foto. -->
+      <div class="hero-media">
+        <div class="hero-photo" role="img" aria-label="Obra em construção com indicadores de Prazo, Risco, Custo e Avanço"></div>
+        <div class="hero-media-fade" aria-hidden="true"></div>
+      </div>
 
-        <!-- Lado esquerdo: copy limpa, contraste máximo -->
+      <div class="hero-main">
+        <!-- copy limpa, contraste máximo -->
         <div class="hero-copy">
           <p class="eyebrow reveal">Planejamento que protege resultados</p>
           <h1 class="hero-headline reveal">Clareza executiva para obras que não podem perder o controle.</h1>
@@ -41,17 +48,6 @@
             </a>
           </div>
         </div>
-
-        <!-- Lado direito: obra em construção (placeholder p/ foto real) + dados integrados -->
-        <div class="hero-media">
-          <!-- Trocar depois: definir --hero-photo:url('assets/img/hero-obra.jpg') no .hero-photo,
-               ou substituir a div por <img src="assets/img/hero-obra.jpg" class="hero-photo"> -->
-          <div class="hero-photo" role="img" aria-label="Obra em construção com indicadores de Prazo, Risco, Custo e Avanço"></div>
-          <div class="hero-media-fade" aria-hidden="true"></div>
-          <!-- Dados (Prazo/Risco/Custo/Avanço) estão embutidos na própria imagem.
-               Overlay HTML dispensado enquanto a foto trouxer os indicadores. -->
-        </div>
-
       </div>
 
       <!-- Régua de experiência: integrada à base do bloco escuro -->

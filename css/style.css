@@ -152,6 +152,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* ----- área principal ----- */
 .hero-main {
   position: relative;
+  z-index: 1;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -196,13 +197,13 @@ html.js .reveal.in { opacity: 1; transform: none; }
   background-size: cover;
   background-position: center;
 }
-/* reforça o escuro à esquerda para a copy manter contraste máximo */
+/* escurece só a esquerda (contraste da copy); base fica livre para
+   a obra aparecer desfocada através da régua de vidro */
 .hero-media-fade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(8,9,12,.94) 0%, rgba(8,9,12,.72) 22%, rgba(8,9,12,.22) 46%, transparent 64%),
-    linear-gradient(180deg, transparent 62%, rgba(8,9,12,.5) 100%);
+    linear-gradient(90deg, rgba(8,9,12,.94) 0%, rgba(8,9,12,.72) 22%, rgba(8,9,12,.22) 46%, transparent 64%);
 }
 
 /* dados integrados à estrutura da obra (discretos, secundários) */
@@ -241,13 +242,14 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .hd-4 { top: 76%; left: 50%; animation-delay: 1.12s; }
 @keyframes hdIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-/* ----- régua de experiência (base do bloco) ----- */
+/* ----- régua de experiência: faixa de vidro fosco sobre a obra ----- */
 .hero-ruler {
   position: relative;
-  z-index: 3;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,.022), rgba(0,0,0,.22));
-  backdrop-filter: blur(6px);
+  z-index: 2;
+  border-top: 1px solid rgba(214,154,78,.42);
+  background: linear-gradient(180deg, rgba(10,11,14,.40) 0%, rgba(10,11,14,.62) 100%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.06);
+  backdrop-filter: blur(18px) saturate(1.06);
 }
 .ruler-track {
   display: grid;
