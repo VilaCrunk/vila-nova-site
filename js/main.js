@@ -39,4 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
   }, 2200);
+
+  // Carrossel "O que fazemos": setas rolam o trilho.
+  const track = document.querySelector('.cap-track');
+  if (track) {
+    const step = () => Math.max(240, Math.round(track.clientWidth * 0.72));
+    document.querySelectorAll('.cap-arrow').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = btn.dataset.dir === 'next' ? 1 : -1;
+        track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+      });
+    });
+  }
 });
