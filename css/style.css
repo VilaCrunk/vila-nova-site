@@ -565,18 +565,18 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .seg-img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  /* grading quente unificado — imagem VISÍVEL, sem escurecer o card todo */
-  filter: brightness(.95) contrast(1.05) saturate(.92) sepia(.18);
+  /* imagens já vêm tratadas (golden hour) — mostra como estão, só um leve realce */
+  filter: contrast(1.03) saturate(1.03);
   transform: scale(var(--z, 1.05));
   transition: transform .9s var(--ease), filter .5s var(--ease);
 }
 .seg-card:hover .seg-img { transform: scale(calc(var(--z, 1.05) + .06)); }
 /* imagens temporárias (trocar depois — mesmas classes, só mudar a url).
    background-position + --z ajustam o crop para focar a área de obra. */
-.seg-1 .seg-img { background-image: url('../assets/img/segment-edificacoes-real.jpeg'); background-position: 50% 46%; --z: 1.09; }
-.seg-2 .seg-img { background-image: url('../assets/img/segment-logistica-real.jpeg'); background-position: 50% 40%; --z: 1.06; }
-.seg-3 .seg-img { background-image: url('../assets/img/segment-infraestrutura-real.jpeg'); background-position: 50% 54%; --z: 1.05; }
-.seg-4 .seg-img { background-image: url('../assets/img/segment-complexas-real.jpeg'); background-position: 34% 56%; --z: 1.14; }
+.seg-1 .seg-img { background-image: url('../assets/img/Edificacoes.png');    background-position: 50% 44%; --z: 1.03; }
+.seg-2 .seg-img { background-image: url('../assets/img/Logistica.png');      background-position: 50% 44%; --z: 1.03; }
+.seg-3 .seg-img { background-image: url('../assets/img/Infraestrutura.png'); background-position: 50% 50%; --z: 1.03; }
+.seg-4 .seg-img { background-image: url('../assets/img/Complexas.png');      background-position: 50% 46%; --z: 1.05; }
 /* overlay SÓ na base (topo/meio da imagem ficam limpos e visíveis) */
 .seg-shade {
   position: absolute; inset: 0; z-index: 1;
