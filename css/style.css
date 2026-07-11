@@ -392,15 +392,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* =============================================================
    O QUE FAZEMOS — cápsula escura + carrossel
    ============================================================= */
-.services { background: var(--ivory); padding: clamp(40px,5vw,76px) 0 clamp(56px,7vw,96px); }
-.services-wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+/* wrapper externo: área escura full-width (mais profundo que a cápsula) */
+.services { background: #0c0a08; padding: clamp(48px,6vw,88px) 0; }
+.services-wrap { width: min(92%, 1400px); margin: 0 auto; }
 
 .services-capsule {
   position: relative;
-  border-radius: clamp(20px, 2.4vw, 32px);
+  border-radius: clamp(20px, 2.4vw, 34px);
   overflow: hidden;
-  background: #0d0b09;
-  box-shadow: 0 44px 100px -56px rgba(0,0,0,.55);
+  background: #100d0a;
+  border: 1px solid rgba(224,196,150,.11);
+  box-shadow: 0 30px 80px -50px rgba(0,0,0,.7);
 }
 /* fundo: obra escurecida (placeholder) + overlay forte + vinheta */
 .cap-bg { position: absolute; inset: 0; z-index: 0; }
@@ -408,22 +410,20 @@ html.js .reveal.in { opacity: 1; transform: none; }
   position: absolute; inset: 0;
   /* trocar depois: definir --services-photo:url('assets/img/...') */
   background-image: var(--services-photo,
-    radial-gradient(85% 75% at 82% 16%, rgba(214,154,78,.16), transparent 55%),
-    linear-gradient(160deg, #1b1712 0%, #120f0b 55%, #0a0806 100%));
+    radial-gradient(90% 70% at 85% 10%, rgba(214,154,78,.05), transparent 55%),
+    linear-gradient(160deg, #1a1611 0%, #14100b 55%, #0f0c09 100%));
   background-size: cover; background-position: center;
 }
 .cap-overlay {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(125% 105% at 50% 34%, transparent 40%, rgba(0,0,0,.58)),
-    linear-gradient(180deg, rgba(12,9,7,.68) 0%, rgba(9,7,6,.82) 100%);
+  background: radial-gradient(120% 105% at 50% 28%, transparent 52%, rgba(0,0,0,.34));
 }
 .cap-inner { position: relative; z-index: 1; padding: clamp(28px,3.6vw,50px); }
 
 /* topo da cápsula */
 .cap-head {
   display: flex; justify-content: space-between; align-items: flex-start;
-  gap: 40px; margin-bottom: clamp(26px,3vw,40px);
+  gap: 40px; margin-bottom: clamp(18px,2vw,28px);
 }
 .cap-head-left { max-width: 540px; }
 .cap-eyebrow { color: var(--amber); display: block; margin-bottom: 16px; }
@@ -529,9 +529,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .cap-nav { display: none; }                    /* scroll horizontal nativo */
   .cap-track { scroll-snap-type: x mandatory; }
   .cap-overlay {
-    background:
-      radial-gradient(140% 110% at 50% 30%, transparent 34%, rgba(0,0,0,.62)),
-      linear-gradient(180deg, rgba(10,8,6,.78), rgba(8,6,5,.9));
+    background: radial-gradient(140% 110% at 50% 28%, transparent 46%, rgba(0,0,0,.42));
   }
   .about-grid { grid-template-columns: 1fr; gap: 26px; }
   .about-divider { display: none; }               /* remove divisor vertical no mobile */
