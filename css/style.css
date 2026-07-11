@@ -565,8 +565,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .seg-img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  /* grading escuro/quente unificado: mesma temperatura e contraste em todas */
-  filter: brightness(.6) contrast(1.12) saturate(.8) sepia(.26);
+  /* grading quente unificado — imagem VISÍVEL, sem escurecer o card todo */
+  filter: brightness(.95) contrast(1.05) saturate(.92) sepia(.18);
   transform: scale(var(--z, 1.05));
   transition: transform .9s var(--ease), filter .5s var(--ease);
 }
@@ -577,18 +577,14 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .seg-2 .seg-img { background-image: url('../assets/img/segment-logistica-real.jpeg'); background-position: 50% 40%; --z: 1.06; }
 .seg-3 .seg-img { background-image: url('../assets/img/segment-infraestrutura-real.jpeg'); background-position: 50% 54%; --z: 1.05; }
 .seg-4 .seg-img { background-image: url('../assets/img/segment-complexas-real.jpeg'); background-position: 34% 56%; --z: 1.14; }
-/* overlay progressivo: escurece o card todo (unifica) + base forte p/ o texto */
+/* overlay SÓ na base (topo/meio da imagem ficam limpos e visíveis) */
 .seg-shade {
   position: absolute; inset: 0; z-index: 1;
-  background:
-    linear-gradient(to top, rgba(5,4,2,.96) 0%, rgba(5,4,2,.66) 26%, rgba(8,6,3,.2) 50%, transparent 74%),
-    linear-gradient(180deg, rgba(18,11,5,.32), rgba(18,11,5,.32));
+  background: linear-gradient(to top, rgba(6,5,3,.92) 0%, rgba(6,5,3,.55) 22%, rgba(8,6,3,.12) 46%, transparent 64%);
 }
-/* overlay um pouco mais forte em Logística e Obras complexas */
+/* base um pouco mais forte em Logística e Obras complexas (ainda sem escurecer o topo) */
 .seg-2 .seg-shade, .seg-4 .seg-shade {
-  background:
-    linear-gradient(to top, rgba(4,3,1,.97) 0%, rgba(4,3,1,.74) 30%, rgba(6,5,3,.28) 54%, transparent 78%),
-    linear-gradient(180deg, rgba(18,11,5,.38), rgba(18,11,5,.38));
+  background: linear-gradient(to top, rgba(5,4,2,.94) 0%, rgba(5,4,2,.62) 26%, rgba(8,6,3,.16) 50%, transparent 68%);
 }
 /* conteúdo no canto inferior esquerdo */
 .seg-body { position: absolute; left: 0; bottom: 0; z-index: 2; padding: clamp(20px,1.9vw,26px); max-width: 88%; }
