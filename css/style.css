@@ -1,0 +1,57 @@
+/* =============================================================
+   VILA NOVA — Folha de estilo principal
+   -------------------------------------------------------------
+   Este arquivo começa apenas com um reset neutro.
+   Tokens (cores, tipografia, espaçamento) e estilos de seção
+   serão adicionados conforme a direção visual for fornecida,
+   seção por seção. Nada visual foi decidido ainda.
+   ============================================================= */
+
+/* ---------- Reset base (neutro) ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------- Design tokens (a preencher) ---------- */
+:root {
+  /* Cores, fontes e espaçamentos entram aqui quando definidos. */
+}
+
+/* ---------- Seções ----------
+   Header, Hero, e demais seções serão adicionados abaixo,
+   um bloco por vez.
+   ---------------------------------------------------------- */

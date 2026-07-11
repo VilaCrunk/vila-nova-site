@@ -1,0 +1,13 @@
+# SO
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Temporários
+*.tmp
+*.log
