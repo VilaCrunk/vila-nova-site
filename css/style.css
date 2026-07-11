@@ -542,7 +542,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* mosaico assimétrico */
 .seg-grid {
   display: grid;
-  grid-template-columns: 1.95fr 1fr 1fr;   /* esquerda ~48% | direita 26% + 26% */
+  grid-template-columns: 1.95fr 1.2fr 0.94fr;   /* esq ~48% | Infra ~56% e Obras ~44% da direita */
   grid-template-rows: 0.82fr 1fr;           /* Logística mais baixa; base maior */
   gap: 20px;
   height: clamp(430px, 50vw, 560px);
@@ -555,40 +555,49 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 /* card fotográfico */
 .seg-card {
-  position: relative; overflow: hidden; border-radius: 14px;
-  border: 1px solid rgba(60,50,38,.18);
-  box-shadow: 0 22px 46px -30px rgba(30,22,14,.5);
-  transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+  position: relative; overflow: hidden; border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.07);
+  box-shadow: 0 18px 44px -30px rgba(18,12,6,.55);
+  transition: box-shadow .45s var(--ease), border-color .45s var(--ease);
 }
-.seg-card:hover { border-color: rgba(214,154,78,.4); box-shadow: 0 28px 56px -28px rgba(30,22,14,.62); }
+.seg-card:hover { border-color: rgba(255,255,255,.14); box-shadow: 0 26px 56px -30px rgba(18,12,6,.66); }
 /* imagem (placeholder cinematográfico; trocar por foto real depois) */
 .seg-img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  filter: brightness(.66) contrast(1.05) saturate(.86) sepia(.18);   /* color grading escuro/quente */
+  /* grading escuro/quente unificado: mesma temperatura e contraste em todas */
+  filter: brightness(.6) contrast(1.12) saturate(.8) sepia(.26);
+  transform: scale(var(--z, 1.05));
   transition: transform .9s var(--ease), filter .5s var(--ease);
 }
-.seg-card:hover .seg-img { transform: scale(1.05); }
-/* imagens temporárias (trocar depois — mesmas classes, só mudar a url) */
-.seg-1 .seg-img { background-image: url('../assets/img/segment-edificacoes-real.jpeg'); }
-.seg-2 .seg-img { background-image: url('../assets/img/segment-logistica-real.jpeg'); }
-.seg-3 .seg-img { background-image: url('../assets/img/segment-infraestrutura-real.jpeg'); }
-.seg-4 .seg-img { background-image: url('../assets/img/segment-complexas-real.jpeg'); background-position: center; }
-/* overlay: escurece o card todo (unifica o grading) + base forte para o texto */
+.seg-card:hover .seg-img { transform: scale(calc(var(--z, 1.05) + .06)); }
+/* imagens temporárias (trocar depois — mesmas classes, só mudar a url).
+   background-position + --z ajustam o crop para focar a área de obra. */
+.seg-1 .seg-img { background-image: url('../assets/img/segment-edificacoes-real.jpeg'); background-position: 50% 46%; --z: 1.09; }
+.seg-2 .seg-img { background-image: url('../assets/img/segment-logistica-real.jpeg'); background-position: 50% 40%; --z: 1.06; }
+.seg-3 .seg-img { background-image: url('../assets/img/segment-infraestrutura-real.jpeg'); background-position: 50% 54%; --z: 1.05; }
+.seg-4 .seg-img { background-image: url('../assets/img/segment-complexas-real.jpeg'); background-position: 34% 56%; --z: 1.14; }
+/* overlay progressivo: escurece o card todo (unifica) + base forte p/ o texto */
 .seg-shade {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(to top, rgba(6,5,3,.95) 0%, rgba(6,5,3,.6) 24%, rgba(8,6,3,.16) 48%, transparent 72%),
-    linear-gradient(180deg, rgba(16,10,5,.34), rgba(16,10,5,.34));
+    linear-gradient(to top, rgba(5,4,2,.96) 0%, rgba(5,4,2,.66) 26%, rgba(8,6,3,.2) 50%, transparent 74%),
+    linear-gradient(180deg, rgba(18,11,5,.32), rgba(18,11,5,.32));
+}
+/* overlay um pouco mais forte em Logística e Obras complexas */
+.seg-2 .seg-shade, .seg-4 .seg-shade {
+  background:
+    linear-gradient(to top, rgba(4,3,1,.97) 0%, rgba(4,3,1,.74) 30%, rgba(6,5,3,.28) 54%, transparent 78%),
+    linear-gradient(180deg, rgba(18,11,5,.38), rgba(18,11,5,.38));
 }
 /* conteúdo no canto inferior esquerdo */
-.seg-body { position: absolute; left: 0; bottom: 0; z-index: 2; padding: clamp(18px,2vw,26px); max-width: 92%; }
-.seg-tick { display: block; width: 26px; height: 2px; background: var(--amber); margin-bottom: 12px; }
-.seg-num { font-family: var(--font-body); font-weight: 600; font-size: 13px; color: var(--amber-bright); }
-.seg-title { font-family: var(--font-display); font-weight: 500; font-size: 21px; line-height: 1.12; color: var(--headline); margin: 6px 0 8px; }
-.seg-1 .seg-title { font-size: clamp(22px,2.4vw,28px); }
-.seg-desc { font-size: 13px; line-height: 1.5; color: rgba(236,231,222,.72); max-width: 30ch; }
-.seg-go { position: absolute; right: clamp(16px,1.6vw,22px); bottom: clamp(16px,1.6vw,22px); z-index: 3; color: var(--amber-bright); display: flex; }
+.seg-body { position: absolute; left: 0; bottom: 0; z-index: 2; padding: clamp(20px,1.9vw,26px); max-width: 88%; }
+.seg-tick { display: block; width: 24px; height: 2px; background: var(--amber); margin-bottom: 14px; }
+.seg-num { font-family: var(--font-body); font-weight: 600; font-size: 12.5px; letter-spacing: .02em; color: var(--amber-bright); }
+.seg-title { font-family: var(--font-display); font-weight: 500; font-size: 20px; line-height: 1.12; color: var(--headline); margin: 8px 0 7px; }
+.seg-1 .seg-title { font-size: clamp(22px,2.3vw,27px); }
+.seg-desc { font-size: 12.5px; line-height: 1.5; color: rgba(236,231,222,.7); max-width: 30ch; }
+.seg-go { position: absolute; right: clamp(18px,1.6vw,22px); bottom: clamp(18px,1.6vw,22px); z-index: 3; color: var(--amber-bright); display: flex; }
 .seg-go svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; }
 .seg-card:hover .seg-go svg { transform: translateX(3px); transition: transform .4s var(--ease); }
 
