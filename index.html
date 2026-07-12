@@ -19,8 +19,30 @@
 <body>
 
   <!-- ============================================================
-       HEADER — a definir (direção ainda não fornecida)
+       HEADER — barra flutuante sobre o hero
        ============================================================ -->
+  <header class="hdr">
+    <div class="hdr-inner">
+      <div class="hdr-bar">
+        <a class="hdr-logo" href="#inicio" aria-label="Vila Nova — início">
+          <img src="assets/img/logo-header-trim.png" alt="Vila Nova">
+        </a>
+        <button class="hdr-burger" id="hdrBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="hdrNav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="hdr-nav" id="hdrNav" aria-label="Navegação principal">
+          <ul class="hdr-links">
+            <li><a href="#servicos">Atuação</a></li>
+            <li><a href="#obras">Segmentos</a></li>
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#diagnostico">Diagnóstico</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+          </ul>
+          <a class="hdr-cta" href="#diagnostico">Solicitar diagnóstico</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <!-- ============================================================
        HERO + RÉGUA DE EXPERIÊNCIA

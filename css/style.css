@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;   /* compensa o header fixo nas âncoras */
 }
 
 img,
@@ -137,6 +138,70 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
    Só esconde quando o JS está ativo (html.js). Sem JS, conteúdo aparece. */
 html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 html.js .reveal.in { opacity: 1; transform: none; }
+
+/* =============================================================
+   HEADER — barra flutuante sobre o hero
+   ============================================================= */
+.hdr { position: fixed; top: clamp(12px,1.6vw,18px); left: 0; right: 0; z-index: 100; }
+.hdr-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.hdr-bar {
+  position: relative;
+  display: flex; align-items: center; gap: 22px;
+  padding: 9px 12px 9px 24px; border-radius: 12px;
+  background: rgba(10,9,8,.68);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border: 1px solid rgba(214,154,78,.18);
+  box-shadow: 0 14px 40px -22px rgba(0,0,0,.6);
+}
+.hdr-logo { display: flex; align-items: center; flex: 0 0 auto; }
+.hdr-logo img { height: clamp(20px,2vw,24px); width: auto; display: block; }
+.hdr-nav { margin-left: auto; display: flex; align-items: center; gap: 30px; }
+.hdr-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+.hdr-links a {
+  font-size: 11.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(236,231,222,.8); transition: color .3s var(--ease);
+}
+.hdr-links a:hover { color: var(--amber-bright); }
+.hdr-cta {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  padding: 11px 20px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--amber-bright), var(--amber)); color: #1b1206;
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  box-shadow: 0 10px 26px -14px rgba(214,154,78,.5);
+  transition: transform .3s var(--ease), filter .3s var(--ease);
+}
+.hdr-cta:hover { transform: translateY(-1px); filter: brightness(.97); }
+.hdr-burger { display: none; }
+
+@media (max-width: 940px) {
+  .hdr-links { gap: 18px; }
+  .hdr-links a { font-size: 11px; letter-spacing: .1em; }
+  .hdr-nav { gap: 22px; }
+}
+@media (max-width: 820px) {
+  .hdr-burger {
+    display: flex; flex-direction: column; gap: 5px; margin-left: auto;
+    background: none; border: 0; cursor: pointer; padding: 8px;
+  }
+  .hdr-burger span { width: 22px; height: 2px; background: var(--on-dark); border-radius: 2px; transition: transform .3s, opacity .3s; }
+  .hdr-burger.x span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hdr-burger.x span:nth-child(2) { opacity: 0; }
+  .hdr-burger.x span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .hdr-nav {
+    position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin-left: 0;
+    flex-direction: column; align-items: stretch; gap: 4px;
+    background: rgba(10,9,8,.96);
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid rgba(214,154,78,.18); border-radius: 12px; padding: 14px;
+    box-shadow: 0 22px 54px -24px rgba(0,0,0,.72);
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  .hdr-nav.open { opacity: 1; visibility: visible; transform: none; }
+  .hdr-links { flex-direction: column; align-items: stretch; gap: 2px; }
+  .hdr-links a { padding: 12px; font-size: 12px; }
+  .hdr-cta { margin-top: 8px; justify-content: center; padding: 14px; font-size: 12px; }
+}
 
 /* =============================================================
    HERO + RÉGUA DE EXPERIÊNCIA

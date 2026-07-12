@@ -40,6 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
   }, 2200);
 
+  // Header: menu mobile (hamburger).
+  const burger = document.getElementById('hdrBurger');
+  const hdrNav = document.getElementById('hdrNav');
+  if (burger && hdrNav) {
+    burger.addEventListener('click', () => {
+      const open = hdrNav.classList.toggle('open');
+      burger.classList.toggle('x', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    hdrNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hdrNav.classList.remove('open');
+      burger.classList.remove('x');
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
   // Carrossel "O que fazemos": setas rolam o trilho.
   const track = document.querySelector('.cap-track');
   if (track) {
