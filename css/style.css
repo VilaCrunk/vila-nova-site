@@ -838,8 +838,46 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .report-note::after { content: ""; width: 7px; height: 7px; border: 1px solid rgba(156,106,28,.6); }
 
 /* =============================================================
+   CTA FINAL — faixa escura de contato (acima do footer)
+   ============================================================= */
+.cta {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #14110d 0%, #0d0b09 55%, #0a0807 100%);
+}
+/* textura quase imperceptível + linha técnica (cronograma/decisão) */
+.cta-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(120% 150% at 82% 0%, rgba(214,154,78,.05), transparent 55%);
+}
+.cta-bg::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(214,154,78,.12) 22%, rgba(214,154,78,.12) 78%, transparent);
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(64px,8vw,104px) var(--gutter);
+}
+.cta-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px,5vw,72px); align-items: center; }
+.cta-eyebrow { color: var(--amber); display: block; }
+.cta-headline {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(30px,3.6vw,46px); line-height: 1.1; letter-spacing: -.01em;
+  color: var(--headline); margin-top: 16px; max-width: 420px;
+}
+.cta-text { font-size: 15.5px; line-height: 1.66; color: rgba(236,231,222,.7); max-width: 440px; margin-bottom: 28px; }
+.cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* =============================================================
    RESPONSIVO
    ============================================================= */
+@media (max-width: 860px) {
+  .cta-grid { grid-template-columns: 1fr; gap: 22px; }
+  .cta-headline, .cta-text { max-width: none; }
+}
+@media (max-width: 480px) {
+  .cta-actions { flex-direction: column; }
+  .cta-actions .btn { width: 100%; justify-content: center; }
+}
 @media (max-width: 860px) {
   .diag-grid { grid-template-columns: 1fr; gap: 30px; }
   .diag-left { padding-right: 0; }
