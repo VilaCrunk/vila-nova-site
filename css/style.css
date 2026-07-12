@@ -710,6 +710,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .tl-card {
   display: flex; gap: 22px; align-items: center;
+  min-height: 132px;                 /* alturas padronizadas entre os cards */
   padding: 24px 28px; border-radius: 12px;
   background: linear-gradient(180deg, rgba(32,27,20,.66), rgba(15,12,9,.82));
   border: 1px solid rgba(224,196,150,.11);
