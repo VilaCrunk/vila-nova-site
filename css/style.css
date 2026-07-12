@@ -733,15 +733,11 @@ html.js .reveal.in { opacity: 1; transform: none; }
    DIAGNÓSTICO — seção clara + card de relatório executivo
    ============================================================= */
 .diag { position: relative; overflow: hidden; background: var(--ivory); }
-/* detalhes de planejamento (cronograma/Gantt + régua + marcos), sem grade */
+/* fundo da seção: imagem de planejamento (silhueta de obra + blueprint),
+   já tratada clara; substitui a grade */
 .diag-bg {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .9;
-  background-image: url('../assets/img/diag-plan.svg');
-  background-repeat: no-repeat;
-  background-position: left -6px top 40px;
-  background-size: min(920px, 72%) auto;
-  -webkit-mask-image: linear-gradient(112deg, #000 0%, #000 42%, transparent 70%);
-          mask-image: linear-gradient(112deg, #000 0%, #000 42%, transparent 70%);
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('../assets/img/diagnostico-background.png') center center / cover no-repeat;
 }
 /* silhueta de obra muito clara no canto inferior esquerdo (quase imperceptível) */
 .diag-blueprint {
