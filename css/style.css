@@ -643,15 +643,15 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .method-bg {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(255,255,255,.014) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.014) 1px, transparent 1px);
-  background-size: 62px 62px;
-  -webkit-mask-image: radial-gradient(130% 100% at 50% 0%, #000 40%, transparent 82%);
-          mask-image: radial-gradient(130% 100% at 50% 0%, #000 40%, transparent 82%);
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: radial-gradient(130% 100% at 50% 0%, #000 45%, transparent 88%);
+          mask-image: radial-gradient(130% 100% at 50% 0%, #000 45%, transparent 88%);
 }
-/* linhas de cronograma/Gantt quase invisíveis, concentradas atrás da coluna esquerda */
+/* linhas de cronograma/Gantt sutis, concentradas atrás da coluna esquerda */
 .method-gantt {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .6;
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .9;
   background-repeat: no-repeat;
   background-image:
     linear-gradient(rgba(214,154,78,.10),rgba(214,154,78,.10)),
@@ -678,56 +678,56 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .method-eyebrow { color: var(--amber); display: block; }
 .method-title {
   font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(26px,3vw,38px); line-height: 1.14; letter-spacing: -.01em;
-  color: var(--headline); margin: 16px 0 16px; max-width: 430px;
+  font-size: clamp(32px,4vw,50px); line-height: 1.1; letter-spacing: -.01em;
+  color: var(--headline); margin: 18px 0 20px; max-width: 480px;
 }
-.method-lead { font-size: 15px; line-height: 1.62; color: rgba(236,231,222,.66); max-width: 390px; }
+.method-lead { font-size: 15.5px; line-height: 1.64; color: rgba(236,231,222,.7); max-width: 400px; }
 .method-micro {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 26px; font-size: 11px; font-weight: 600;
-  letter-spacing: .18em; text-transform: uppercase; color: rgba(214,154,78,.8);
+  display: block; margin-top: 30px; font-size: 11px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: rgba(214,154,78,.85); line-height: 1.7;
 }
-.method-micro::before { content: ""; width: 22px; height: 1px; background: rgba(214,154,78,.6); }
+.method-micro::before { content: ""; display: block; width: 28px; height: 1px; background: rgba(214,154,78,.7); margin-bottom: 12px; }
 
 /* coluna direita — timeline vertical */
 .timeline { position: relative; }
 .timeline::before {
-  content: ""; position: absolute; left: 5px; top: 22px; bottom: 22px; width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(214,154,78,.3) 6%, rgba(214,154,78,.3) 94%, transparent);
+  content: ""; position: absolute; left: 6px; top: 26px; bottom: 26px; width: 1.5px;
+  background: linear-gradient(180deg, transparent, rgba(214,154,78,.45) 5%, rgba(214,154,78,.45) 95%, transparent);
 }
-.tl-step { position: relative; padding-left: 30px; }
-.tl-step + .tl-step { margin-top: 14px; }
-/* nó quadrado técnico sobre a linha */
+.tl-step { position: relative; padding-left: 34px; }
+.tl-step + .tl-step { margin-top: 16px; }
+/* nó quadrado técnico (vazado), centralizado no card */
 .tl-connector {
-  position: absolute; left: 0; top: 27px;
-  width: 10px; height: 10px; border-radius: 2px;
-  background: rgba(214,154,78,.82); box-shadow: 0 0 0 4px #0f0c09;
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 13px; height: 13px; border-radius: 2px;
+  background: #100d0a; border: 1.5px solid rgba(214,154,78,.9);
+  box-shadow: 0 0 0 3px #100d0a;
 }
 /* conector horizontal: liga o nó ao card (sistema, não decoração) */
 .tl-step::before {
-  content: ""; position: absolute; left: 10px; top: 31px;
-  width: 20px; height: 1px; background: rgba(214,154,78,.3);
+  content: ""; position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  width: 21px; height: 1.5px; background: rgba(214,154,78,.5);
 }
 .tl-card {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 20px 22px; border-radius: 12px;
-  background: linear-gradient(180deg, rgba(30,26,20,.62), rgba(15,12,9,.8));
-  border: 1px solid rgba(224,196,150,.1);
-  border-left: 2px solid rgba(214,154,78,.42);
-  box-shadow: 0 30px 64px -36px rgba(0,0,0,.82);
+  display: flex; gap: 22px; align-items: center;
+  padding: 24px 28px; border-radius: 12px;
+  background: linear-gradient(180deg, rgba(32,27,20,.66), rgba(15,12,9,.82));
+  border: 1px solid rgba(224,196,150,.11);
+  border-left: 2px solid rgba(214,154,78,.55);
+  box-shadow: 0 32px 66px -34px rgba(0,0,0,.85);
   transition: transform .4s var(--ease), border-color .4s var(--ease);
 }
-.tl-card:hover { transform: translateX(3px); border-color: rgba(224,196,150,.18); }
+.tl-card:hover { transform: translateX(4px); border-color: rgba(224,196,150,.2); }
 .tl-icon {
-  flex: 0 0 auto; width: 32px; height: 32px; border-radius: 8px;
+  flex: 0 0 auto; width: 48px; height: 48px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(214,154,78,.07); border: 1px solid rgba(214,154,78,.16);
-  color: var(--amber-bright);
+  color: rgba(216,178,120,.9);
 }
-.tl-icon svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.6; fill: none; }
-.tl-num { font-family: var(--font-body); font-weight: 600; font-size: 11.5px; letter-spacing: .1em; color: rgba(214,154,78,.85); }
-.tl-title { font-family: var(--font-display); font-weight: 500; font-size: 18.5px; line-height: 1.15; color: var(--headline); margin: 4px 0 7px; }
-.tl-desc { font-size: 13.5px; line-height: 1.55; color: var(--warm-gray); }
+.tl-icon svg { width: 44px; height: 44px; stroke: currentColor; stroke-width: 1.25; fill: none; }
+.tl-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 9px; }
+.tl-num { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--amber-bright); }
+.tl-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(20px,1.7vw,24px); line-height: 1.1; color: var(--headline); margin: 0; }
+.tl-desc { font-size: 13.5px; line-height: 1.56; color: var(--warm-gray); }
 
 /* =============================================================
    RESPONSIVO
