@@ -866,6 +866,9 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .cta-text { font-size: 15.5px; line-height: 1.66; color: rgba(236,231,222,.7); max-width: 440px; margin-bottom: 28px; }
 .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+/* contorno mais visível no botão outline (evita texto "flutuando") */
+.cta .btn-ghost { border-color: rgba(255,255,255,.42); }
+.cta .btn-ghost:hover { border-color: var(--amber); background: rgba(214,154,78,.06); }
 
 /* =============================================================
    RESPONSIVO
