@@ -760,10 +760,18 @@ html.js .reveal.in { opacity: 1; transform: none; }
   max-width: var(--maxw); margin: 0 auto;
   padding: clamp(64px,7vw,100px) var(--gutter);
 }
-.diag-grid { display: grid; grid-template-columns: 46fr 54fr; gap: clamp(26px,3vw,48px); align-items: center; }
+/* colunas com largura fixa + par centralizado: mantém texto e card conectados,
+   levando o respiro para as bordas externas (sem vazio no meio) */
+.diag-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 560px);
+  justify-content: center;
+  gap: clamp(32px, 4vw, 60px);
+  align-items: center;
+}
 
 /* coluna esquerda */
-.diag-left { padding-right: clamp(0px,1vw,20px); }
+.diag-left { padding-right: 0; }
 .diag-eyebrow { color: var(--amber-deep); display: block; }
 .diag-title {
   font-family: var(--font-display); font-weight: 500;
