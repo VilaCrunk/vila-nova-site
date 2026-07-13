@@ -530,6 +530,20 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .cap-arrow:hover { border-color: var(--amber); color: var(--amber-bright); }
 .cap-arrow svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 2; fill: none; }
 
+/* indicador de posição (pontos) — só aparece no mobile (setas somem) */
+.cap-dots { display: none; justify-content: center; gap: 12px; margin-top: 20px; }
+.cap-dot {
+  -webkit-appearance: none; appearance: none;
+  width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(236,231,222,.28); cursor: pointer; position: relative;
+  transition: background .3s var(--ease);
+}
+.cap-dot.is-active { background: var(--amber-bright); }
+.cap-dot.is-active::before {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  border: 1px solid rgba(214,154,78,.55);
+}
+
 /* trilho do carrossel */
 .cap-track {
   display: flex; gap: 14px; align-items: center;
@@ -1059,6 +1073,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .cap-head { flex-direction: column; gap: 16px; }
   .cap-head-right { max-width: none; }
   .cap-nav { display: none; }                    /* scroll horizontal nativo */
+  .cap-dots { display: flex; }                   /* pontos indicam posição/arraste */
   .cap-track { scroll-snap-type: x mandatory; }
   .cap-overlay {
     background: radial-gradient(140% 110% at 50% 28%, transparent 46%, rgba(0,0,0,.42));
@@ -1156,6 +1171,16 @@ html.js .reveal.in { opacity: 1; transform: none; }
     color: var(--charcoal);
   }
   .pill svg { width: 16px; height: 16px; flex-basis: 16px; }
+}
+
+/* ---------- MOBILE: "O que fazemos" — carrossel (parte 5) ---------- */
+@media (max-width: 600px) {
+  /* card principal bem visível + peek do próximo; secundários padronizados
+     (altura fixa: todos 02–06 do mesmo tamanho) e nem estreitos demais */
+  .svc-card { flex-basis: clamp(198px, 54vw, 236px); min-height: 384px; }
+  .svc-card--hero { flex-basis: clamp(244px, 68vw, 300px); min-height: 384px; }
+  /* respiro entre o texto e o gráfico do card 1 */
+  .svc-card--hero .svc-desc { margin-bottom: 18px; }
 }
 
 /* acessibilidade — reduz movimento */
