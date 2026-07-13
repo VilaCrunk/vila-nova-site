@@ -530,8 +530,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 /* cards */
 .svc-card {
-  position: relative; flex: 0 0 clamp(172px,15vw,196px);
-  min-height: clamp(282px,32vw,320px);
+  position: relative; flex: 0 0 clamp(212px,19vw,244px);
+  min-height: clamp(384px,44vw,442px);
   display: flex; flex-direction: column;
   padding: 20px 20px 18px; border-radius: 16px;
   background: linear-gradient(180deg, rgba(24,24,27,.94) 0%, rgba(11,11,13,.97) 100%);
@@ -563,14 +563,23 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .svc-card:hover .svc-go { border-color: var(--amber); transform: translateX(2px); }
 .svc-go svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; }
 
-/* imagem escurecida na base (placeholder) dos cards secundários */
+/* foto na base dos cards secundários (02–06) */
 .svc-media {
-  margin: auto -20px -18px; height: 90px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  background:
-    radial-gradient(80% 120% at 30% 0%, rgba(210,214,222,.05), transparent 60%),
-    linear-gradient(180deg, rgba(26,26,29,.5), rgba(7,7,8,.92));
+  margin: auto -20px -18px; height: 168px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background-color: #0b0b0d;
+  background-image:
+    linear-gradient(180deg, rgba(7,7,8,.55) 0%, rgba(7,7,8,.12) 42%, rgba(7,7,8,.42) 100%),
+    var(--card-photo, none);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
+.svc-2 { --card-photo: url('../assets/img/card-02.png'); }
+.svc-3 { --card-photo: url('../assets/img/card-03.png'); }
+.svc-4 { --card-photo: url('../assets/img/card-04.png'); }
+.svc-5 { --card-photo: url('../assets/img/card-05.png'); }
+.svc-6 { --card-photo: url('../assets/img/card-06.png'); }
 
 /* card 01 — protagonista */
 .svc-card--hero {
