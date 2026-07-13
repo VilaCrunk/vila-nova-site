@@ -1091,6 +1091,31 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .btn { width: 100%; justify-content: center; }
 }
 
+/* ---------- MOBILE: hero compacto (parte 2) ---------- */
+@media (max-width: 600px) {
+  /* fundo específico do mobile (retrato 9:16) — não depende do crop desktop */
+  .hero-photo {
+    --hero-photo: url('../assets/img/Hero-mobile.png');
+    background-position: 50% 30%;
+  }
+  /* escurece topo (headline) e base (atrás da cápsula), aliviando o meio
+     para a obra aparecer melhor no retrato */
+  .hero-media-fade {
+    background:
+      linear-gradient(180deg,
+        rgba(9,10,13,.90) 0%, rgba(9,10,13,.60) 30%,
+        rgba(9,10,13,.34) 54%, rgba(9,10,13,.5) 78%, rgba(9,10,13,.80) 100%);
+  }
+  /* menos vão vertical: o hero acompanha o conteúdo e aproxima os elementos */
+  .hero-main { min-height: auto; }
+  .hero-copy { padding: 30px var(--gutter) 26px; }
+  .hero-headline { font-size: clamp(31px, 8.6vw, 40px); margin: 12px 0 14px; }
+  .hero-lead { font-size: 15px; margin: 0 0 22px; }
+  /* CTA mais elegante: largura natural, ancorado à esquerda */
+  .hero-cta { justify-content: flex-start; }
+  .hero-cta .btn { width: auto; padding: 15px 26px; }
+}
+
 /* acessibilidade — reduz movimento */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
