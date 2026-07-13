@@ -34,6 +34,17 @@ Cards 02–06 crescem para **243×442** e ficam **todos do mesmo tamanho**; **ca
 (`.svc-card--hero`) permanece com o mini-gráfico CSS e **não cresce**.
 Obs.: os PNGs originais com espaço/`01 gestao prazo.png` continuam na pasta (não usados pelo site).
 
+## Ajustes de mobile (só mobile — desktop aprovado NÃO deve mudar)
+Refinamentos isolados em `@media (max-width:820px)` (header) e novos blocos `@media (max-width:600px)`.
+Verificar sempre desktop (1280) após mexer: burger some, régua volta a faixa full-width 4 col.
+- **Header**: botão de menu com fundo/borda âmbar e área de toque 44×40; ícone usa `--amber-bright`
+  (antes usava `--on-dark` inexistente → invisível). Logo 15px no mobile.
+- **Hero**: usa `Hero-mobile.png` (retrato 9:16) via override de `--hero-photo`; padding vertical
+  reduzido; elementos aproximados; CTA largura natural à esquerda.
+- **Régua**: no mobile `.ruler-track` vira cápsula vitrificada (blur + borda âmbar sutil, cantos 20px),
+  dentro do hero, 2×2; `.hero-ruler` perde a faixa/linha full-width só no mobile.
+- **Sobre**: pills maiores e com mais contraste.
+
 ## Pendências finais
 - Converter PNGs pesados (~1–3 MB cada) para **WebP** (hero, segmentos, método, diagnóstico, cápsula, e os `card-02..06.png`).
 - Conectar **WhatsApp/telefone e e-mail reais** nos botões (hoje placeholders `#`).
