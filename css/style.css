@@ -1216,12 +1216,18 @@ html.js .reveal.in { opacity: 1; transform: none; }
     border-radius: 14px;
   }
   .seg-go { right: 24px; bottom: 22px; }
-  /* pontos indicadores do carrossel de segmentos */
+  /* pontos indicadores do carrossel de segmentos (fundo claro -> pontos escuros) */
   .seg-dots { display: flex; }
+  .seg-dots .cap-dot { background: rgba(40,36,30,.28); }
+  .seg-dots .cap-dot.is-active { background: var(--amber-deep); }
+  .seg-dots .cap-dot.is-active::before { border-color: rgba(156,106,28,.5); }
+  /* equilibra o respiro até a próxima seção (evita vão exagerado) */
+  .segments-inner { padding-bottom: 34px; }
 }
 
 /* ---------- MOBILE: Logos — grade compacta (parte 7) ---------- */
 @media (max-width: 600px) {
+  .logos-inner { padding-top: 40px; }   /* título mais equilibrado, sem vão grande */
   .logo-cell { min-height: 66px; padding: 12px 10px; }
   .logo-cell img { max-height: 34px; max-width: 84%; opacity: .72; }
 }
