@@ -250,7 +250,14 @@ html.js .reveal.in { opacity: 1; transform: none; }
   letter-spacing: -.01em;
   color: var(--headline);
   text-wrap: balance;
-  margin: 22px 0 34px;
+  margin: 22px 0 20px;
+}
+.hero-lead {
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.6;
+  color: rgba(236,231,222,.74);
+  margin: 0 0 32px;
+  text-shadow: 0 1px 14px rgba(0,0,0,.55);
 }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
