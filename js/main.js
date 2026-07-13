@@ -42,15 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Header: menu mobile (hamburger).
   const burger = document.getElementById('hdrBurger');
-  const hdrNav = document.getElementById('hdrNav');
-  if (burger && hdrNav) {
+  const hdrMenu = document.getElementById('hdrMenu');
+  if (burger && hdrMenu) {
     burger.addEventListener('click', () => {
-      const open = hdrNav.classList.toggle('open');
+      const open = hdrMenu.classList.toggle('open');
       burger.classList.toggle('x', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    hdrNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      hdrNav.classList.remove('open');
+    hdrMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hdrMenu.classList.remove('open');
       burger.classList.remove('x');
       burger.setAttribute('aria-expanded', 'false');
     }));
