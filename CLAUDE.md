@@ -26,15 +26,15 @@ Header (barra flutuante) · Hero (imagem `Hero-obra.png` + régua) · Sobre · *
 - Imagens grandes tratadas ficam em `assets/img/`. Ao receber JPG com fundo, remover fundo (Pillow, chave de luminância) e recortar padding → salvar `*-trim.png`.
 - Fundo da cápsula "O que fazemos" = `.cap-photo` via `--services-photo` (fazemos-background.png).
 
-## TAREFA EM ANDAMENTO
-Preencher os cards do carrossel "O que fazemos" com fotos (`assets/img/`):
-`01 gestao prazo.png`, `02 estruturacaoo de cronogramas.png`, `03 planejamento executivo.png`,
-`04 recuperacao de cronogramas.png`, `05 governanca de prazo.png`, `06 treinamento empresarial.png`.
-Regras do usuário: **card 01 NÃO cresce** (mantém o mini-gráfico CSS). Cards **02–06 crescem** para compor
-com as imagens e devem ficar **todos do mesmo tamanho**. As fotos entram no `.svc-media` (base do card).
-Sugestão: renomear para nomes sem espaço (ex.: `card-02.png`) e apontar `.svc-N .svc-media` para cada uma.
+## TAREFA CONCLUÍDA (cards "O que fazemos")
+Cards 02–06 do carrossel preenchidos com fotos. Fotos copiadas para nomes sem espaço
+(`assets/img/card-02.png` … `card-06.png`) e apontadas via `--card-photo` nas classes
+`.svc-2`…`.svc-6` (base do card, `.svc-media` com `cover` + overlay escuro).
+Cards 02–06 crescem para **243×442** e ficam **todos do mesmo tamanho**; **card 01**
+(`.svc-card--hero`) permanece com o mini-gráfico CSS e **não cresce**.
+Obs.: os PNGs originais com espaço/`01 gestao prazo.png` continuam na pasta (não usados pelo site).
 
 ## Pendências finais
-- Converter PNGs pesados (~1–3 MB cada) para **WebP** (hero, segmentos, método, diagnóstico, cápsula, cards).
+- Converter PNGs pesados (~1–3 MB cada) para **WebP** (hero, segmentos, método, diagnóstico, cápsula, e os `card-02..06.png`).
 - Conectar **WhatsApp/telefone e e-mail reais** nos botões (hoje placeholders `#`).
 - Revisão final de consistência.
