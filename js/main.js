@@ -99,4 +99,92 @@ document.addEventListener('DOMContentLoaded', () => {
     wireDots(segTrack, Array.from(segTrack.querySelectorAll('.seg-card')),
              Array.from(document.querySelectorAll('.seg-dots .cap-dot')));
   }
+
+  // Contato: formulário inline (abre/fecha) + validação + envio.
+  const emailToggle = document.getElementById('emailToggle');
+  const contactPanel = document.getElementById('contactForm');
+  const contactForm = contactPanel ? contactPanel.querySelector('.contact-form') : null;
+  if (emailToggle && contactPanel && contactForm) {
+    emailToggle.addEventListener('click', () => {
+      const open = contactPanel.classList.toggle('is-open');
+      emailToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) setTimeout(() => { const f = document.getElementById('cf-name'); if (f) f.focus(); }, 380);
+    });
+
+    const fields = {
+      name: document.getElementById('cf-name'),
+      email: document.getElementById('cf-email'),
+      message: document.getElementById('cf-message'),
+      consent: document.getElementById('cf-consent'),
+    };
+    const submitBtn = contactForm.querySelector('.cf-submit');
+    const feedback = contactForm.querySelector('.cf-feedback');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const validators = {
+      name: () => fields.name.value.trim().length > 0,
+      email: () => emailRe.test(fields.email.value.trim()),
+      message: () => fields.message.value.trim().length > 0,
+      consent: () => fields.consent.checked,
+    };
+    const errorMsgs = {
+      name: 'Informe seu nome.',
+      email: 'Informe um e-mail válido.',
+      message: 'Escreva sua mensagem.',
+      consent: 'É necessário aceitar para enviar.',
+    };
+    const isValid = () => Object.keys(validators).every(k => validators[k]());
+    const refreshSubmit = () => { submitBtn.disabled = !isValid(); };
+    const showError = (key, show) => {
+      const el = fields[key];
+      const wrap = key === 'consent' ? el.closest('.cf-consent') : el.closest('.cf-field');
+      if (wrap) wrap.classList.toggle('has-error', show);
+      if (key !== 'consent') {
+        const err = document.getElementById('cf-' + key + '-error');
+        if (err) err.textContent = show ? errorMsgs[key] : '';
+      }
+    };
+
+    ['name', 'email', 'message'].forEach(k => {
+      fields[k].addEventListener('input', () => { refreshSubmit(); if (validators[k]()) showError(k, false); });
+      fields[k].addEventListener('blur', () => showError(k, !validators[k]()));
+    });
+    fields.consent.addEventListener('change', () => { refreshSubmit(); showError('consent', !validators.consent()); });
+
+    // Ponto único de integração futura (backend/serviço de e-mail).
+    // Sem backend agora: resolve para exibir a mensagem de sucesso.
+    const deliverContact = (payload) => {
+      if (typeof window.vnSendContact === 'function') return window.vnSendContact(payload);
+      return Promise.resolve(); // TODO: conectar ao handler real de envio
+    };
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      Object.keys(validators).forEach(k => showError(k, !validators[k]()));
+      if (!isValid()) return;
+      feedback.className = 'cf-feedback';
+      const prevLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      const phoneEl = document.getElementById('cf-phone');
+      const payload = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        phone: phoneEl ? phoneEl.value.trim() : '',
+        message: fields.message.value.trim(),
+      };
+      deliverContact(payload).then(() => {
+        contactForm.reset();
+        submitBtn.textContent = prevLabel;
+        refreshSubmit();
+        feedback.textContent = 'Mensagem enviada com sucesso. Em breve a equipe Vila Nova entrará em contato.';
+        feedback.classList.add('is-success');
+      }).catch(() => {
+        submitBtn.textContent = prevLabel;
+        submitBtn.disabled = false;
+        feedback.textContent = 'Não foi possível enviar sua mensagem agora. Tente novamente ou fale conosco pelo contato principal.';
+        feedback.classList.add('is-error');
+      });
+    });
+  }
 });

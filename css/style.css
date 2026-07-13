@@ -991,8 +991,62 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .cta-text { font-size: 15.5px; line-height: 1.66; color: rgba(236,231,222,.7); max-width: 440px; margin-bottom: 28px; }
 .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 /* contorno mais visível no botão outline (evita texto "flutuando") */
-.cta .btn-ghost { border-color: rgba(255,255,255,.42); }
+.cta .btn-ghost {
+  border-color: rgba(255,255,255,.42);
+  background: transparent; color: var(--offwhite);
+  -webkit-appearance: none; appearance: none;
+}
 .cta .btn-ghost:hover { border-color: var(--amber); background: rgba(214,154,78,.06); }
+.cta .btn-ghost[aria-expanded="true"] { border-color: var(--amber); background: rgba(214,154,78,.08); }
+
+/* formulário inline de contato — abre/fecha sob os botões, estética escura premium */
+.contact-panel {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height .5s var(--ease), opacity .4s var(--ease);
+}
+.contact-panel.is-open { max-height: 1400px; opacity: 1; }
+.contact-form {
+  margin-top: clamp(22px,2.6vw,32px); max-width: 680px;
+  padding: clamp(22px,2.4vw,30px);
+  background: linear-gradient(180deg, rgba(26,22,18,.9), rgba(14,12,10,.94));
+  border: 1px solid rgba(214,154,78,.16); border-radius: 14px;
+  box-shadow: 0 26px 60px -34px rgba(0,0,0,.82);
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.cf-field { display: flex; flex-direction: column; margin-bottom: 14px; }
+.cf-row .cf-field { margin-bottom: 0; }
+.cf-label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 7px; }
+.cf-input {
+  -webkit-appearance: none; appearance: none; width: 100%;
+  padding: 12px 14px; font-family: var(--font-body); font-size: 14px; color: var(--offwhite);
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.12); border-radius: 9px;
+  transition: border-color .3s var(--ease), background .3s var(--ease);
+}
+.cf-input::placeholder { color: var(--warm-gray); }
+.cf-input:focus { outline: none; border-color: rgba(214,154,78,.55); background: rgba(255,255,255,.05); }
+.cf-textarea { resize: vertical; min-height: 104px; line-height: 1.5; }
+.cf-field.has-error .cf-input { border-color: rgba(202,104,84,.6); }
+.cf-error { font-size: 11.5px; color: rgba(224,142,122,.92); margin-top: 6px; display: none; }
+.cf-field.has-error .cf-error { display: block; }
+.cf-consent {
+  display: flex; gap: 10px; align-items: flex-start; margin: 2px 0 18px;
+  font-size: 12.5px; line-height: 1.5; color: var(--warm-gray); cursor: pointer;
+}
+.cf-consent a { color: var(--amber-bright); text-decoration: underline; text-underline-offset: 2px; }
+.cf-check { flex: 0 0 auto; width: 16px; height: 16px; margin-top: 2px; accent-color: var(--amber); cursor: pointer; }
+.cf-consent.has-error { color: rgba(224,142,122,.95); }
+.cf-submit { width: auto; margin-top: 2px; }
+.cf-submit:disabled { opacity: .45; cursor: not-allowed; filter: grayscale(.25); box-shadow: none; }
+.cf-feedback { margin-top: 14px; font-size: 13.5px; line-height: 1.5; display: none; }
+.cf-feedback.is-success { display: block; color: rgba(150,196,150,.92); }
+.cf-feedback.is-error { display: block; color: rgba(224,142,122,.95); }
+@media (max-width: 600px) {
+  .contact-form { padding: 20px 16px; }
+  .cf-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
+  .cf-row .cf-field { margin-bottom: 14px; }
+  .cf-input { padding: 13px 14px; font-size: 16px; }   /* 16px evita zoom automático no iOS */
+  .cf-submit { width: 100%; }
+}
 
 /* =============================================================
    FOOTER institucional — fechamento escuro e silencioso
@@ -1004,10 +1058,22 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .foot-grid {
   display: grid; grid-template-columns: 1.5fr 1fr 1.3fr;
-  gap: clamp(28px,3vw,52px); align-items: center;   /* logo centralizada com as colunas */
+  gap: clamp(28px,3vw,52px); align-items: start;
   padding-bottom: clamp(32px,3.5vw,44px);
 }
-.foot-brand img { height: clamp(78px,8vw,104px); width: auto; }   /* presença adequada */
+.foot-brand img { height: clamp(78px,8vw,104px); width: auto; display: block; }   /* presença adequada */
+/* redes sociais — pequenas, discretas, sem chamar mais que a logo */
+.foot-social { margin-top: clamp(22px,2.4vw,30px); }
+.foot-social .foot-label { margin-bottom: 12px; }
+.foot-social-links { display: flex; gap: 6px; margin-left: -8px; }
+.foot-soc {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  color: rgba(236,231,222,.5);
+  transition: color .3s var(--ease), background .3s var(--ease);
+}
+.foot-soc:hover { color: var(--amber-bright); background: rgba(214,154,78,.06); }
+.foot-soc svg { width: 18px; height: 18px; display: block; fill: currentColor; }
 /* barras elegantes de divisão entre as colunas */
 .foot-col { border-left: 1px solid rgba(255,255,255,.09); padding-left: clamp(28px,3vw,52px); }
 .foot-label { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 18px; }
@@ -1015,13 +1081,21 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .foot-col a, .foot-col li { font-size: 13.5px; line-height: 1.5; color: rgba(236,231,222,.58); transition: color .3s var(--ease); }
 .foot-col a:hover { color: rgba(236,231,222,.95); }
 .foot-contact li { max-width: 240px; }
-.foot-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: clamp(18px,2vw,22px); text-align: center; }
-.foot-bottom span { font-size: 12px; letter-spacing: .02em; color: rgba(236,231,222,.34); }
+.foot-bottom {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  border-top: 1px solid rgba(255,255,255,.06); padding-top: clamp(18px,2vw,22px);
+}
+.foot-copy { font-size: 12px; letter-spacing: .02em; color: rgba(236,231,222,.34); }
+.foot-legal { display: flex; gap: 20px; }
+.foot-legal a { font-size: 12px; color: rgba(236,231,222,.4); transition: color .3s var(--ease); }
+.foot-legal a:hover { color: var(--amber-bright); }
 
 @media (max-width: 760px) {
   .foot-grid { grid-template-columns: 1fr; gap: 30px; align-items: start; }
   .foot-brand img { height: 70px; }
   .foot-col { border-left: 0; padding-left: 0; }   /* sem dividers verticais no mobile */
+  .foot-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .foot-legal { gap: 18px; }
 }
 
 /* =============================================================
