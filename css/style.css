@@ -1146,6 +1146,18 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .m-desc { max-width: none; margin-top: 9px; }
 }
 
+/* ---------- MOBILE: sobre — pills mais legíveis (parte 4) ---------- */
+@media (max-width: 600px) {
+  .about-pills { gap: 9px; margin-top: 22px; }
+  .pill {
+    font-size: 13.5px; padding: 10px 16px;
+    border-color: rgba(40,36,30,.30);
+    background: rgba(255,255,255,.72);
+    color: var(--charcoal);
+  }
+  .pill svg { width: 16px; height: 16px; flex-basis: 16px; }
+}
+
 /* acessibilidade — reduz movimento */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
