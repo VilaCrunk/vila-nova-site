@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=1783951214">
 </head>
 <body>
 
@@ -189,9 +189,22 @@
                   <span class="chart-label">Desempenho do prazo</span>
                   <span class="chart-figs"><span class="chart-val">86<i>%</i></span><span class="chart-sub">Índice de cumprimento</span></span>
                 </div>
-                <svg class="chart-svg" viewBox="0 0 260 46" preserveAspectRatio="none">
-                  <polyline points="0,34 29,28 58,35 87,23 116,29 145,18 174,23 203,12 232,16 260,8"/>
-                </svg>
+                <div class="chart-plot">
+                  <svg class="chart-svg" viewBox="0 0 300 90" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="svcArea" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#d69a4e" stop-opacity=".30"/>
+                        <stop offset="1" stop-color="#d69a4e" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <line class="chart-grid" x1="0" y1="22.5" x2="300" y2="22.5"/>
+                    <line class="chart-grid" x1="0" y1="45" x2="300" y2="45"/>
+                    <line class="chart-grid" x1="0" y1="67.5" x2="300" y2="67.5"/>
+                    <polygon class="chart-area" points="0,66 33,54 66,68 99,44 132,56 165,34 198,44 231,22 264,30 294,16 294,90 0,90"/>
+                    <polyline points="0,66 33,54 66,68 99,44 132,56 165,34 198,44 231,22 264,30 294,16"/>
+                  </svg>
+                  <span class="chart-dot"></span>
+                </div>
                 <div class="chart-x"><span>JAN</span><span>MAR</span><span>MAI</span><span>JUL</span><span>SET</span><span>NOV</span></div>
               </div>
               <a class="svc-go" href="#contato" aria-label="Saber mais sobre Gestão de prazo">

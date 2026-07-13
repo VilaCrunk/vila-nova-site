@@ -531,7 +531,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* cards */
 .svc-card {
   position: relative; flex: 0 0 clamp(212px,19vw,244px);
-  min-height: clamp(384px,44vw,442px);
+  min-height: clamp(336px,38vw,388px);
   display: flex; flex-direction: column;
   padding: 20px 20px 18px; border-radius: 16px;
   background: linear-gradient(180deg, rgba(24,24,27,.94) 0%, rgba(11,11,13,.97) 100%);
@@ -565,7 +565,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 /* foto na base dos cards secundários (02–06) */
 .svc-media {
-  margin: auto -20px -18px; height: 168px;
+  margin: 15px -20px -18px; flex: 1 1 auto; min-height: 132px;
   border-top: 1px solid rgba(255,255,255,.08);
   background-color: #0b0b0d;
   background-image:
@@ -591,17 +591,32 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .svc-card--hero .svc-title { font-size: 24px; }
 .svc-card--hero .svc-desc { max-width: 34ch; }
 
-/* mini gráfico discreto do card 01 */
-.svc-chart { margin-top: auto; padding-top: 18px; }
-.chart-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; }
+/* mini painel de desempenho do card 01 */
+.svc-chart {
+  margin-top: auto; padding: 15px 16px 13px;
+  border: 1px solid rgba(255,255,255,.08); border-radius: 13px;
+  background:
+    radial-gradient(120% 80% at 85% 0%, rgba(214,154,78,.06), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 26px -20px rgba(0,0,0,.8);
+}
+.chart-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
 .chart-label { font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--warm-gray); }
 .chart-figs { text-align: right; line-height: 1; }
 .chart-val { font-family: var(--font-body); font-weight: 700; font-size: 22px; color: var(--amber-bright); }
 .chart-val i { font-size: 12px; font-style: normal; margin-left: 1px; }
 .chart-sub { display: block; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: rgba(154,145,135,.7); margin-top: 4px; }
-.chart-svg { width: 100%; height: 46px; display: block; }
-.chart-svg polyline { fill: none; stroke: var(--amber); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.chart-x { display: flex; justify-content: space-between; margin-top: 8px; padding-right: 42px; }
+.chart-plot { position: relative; }
+.chart-svg { width: 100%; height: 58px; display: block; overflow: visible; }
+.chart-svg polyline { fill: none; stroke: var(--amber-bright); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.chart-area { fill: url(#svcArea); stroke: none; }
+.chart-grid { stroke: rgba(255,255,255,.06); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.chart-dot {
+  position: absolute; left: 98%; top: 17.8%; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--amber-bright); transform: translate(-50%,-50%);
+  box-shadow: 0 0 0 3px rgba(214,154,78,.16), 0 0 10px 2px rgba(231,172,96,.55);
+}
+.chart-x { display: flex; justify-content: space-between; margin-top: 10px; }
 .chart-x span { font-size: 8.5px; letter-spacing: .08em; color: rgba(154,145,135,.65); }
 
 /* =============================================================
