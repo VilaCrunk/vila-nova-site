@@ -482,7 +482,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .cap-bg { position: absolute; inset: 0; z-index: 0; }
 .cap-photo {
   position: absolute; inset: 0;
-  /* trocar depois: definir --services-photo:url('assets/img/...') */
+  /* fundo da CÁPSULA (não da seção): cena de obra escura/cinematográfica */
+  --services-photo: url('../assets/img/fazemos-background.png');
   background-image: var(--services-photo,
     radial-gradient(90% 70% at 85% 10%, rgba(214,154,78,.05), transparent 55%),
     linear-gradient(160deg, #1a1611 0%, #14100b 55%, #0f0c09 100%));
