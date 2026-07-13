@@ -45,7 +45,16 @@ Verificar sempre desktop (1280) após mexer: burger some, régua volta a faixa f
   dentro do hero, 2×2; `.hero-ruler` perde a faixa/linha full-width só no mobile.
 - **Sobre**: pills maiores e com mais contraste.
 
+## Contato — formulário inline
+Botão "Enviar e-mail" (`#emailToggle`) abre/fecha o form `#contactForm` na própria seção
+(sem mailto/nova aba). CSS `.contact-panel` anima via `max-height`. Validação + estado do
+botão em `js/main.js`. **Integração de envio**: definir `window.vnSendContact(payload)`
+retornando Promise; sem ela o handler apenas mostra a mensagem de sucesso (stub).
+
 ## Pendências finais
 - Converter PNGs pesados (~1–3 MB cada) para **WebP** (hero, segmentos, método, diagnóstico, cápsula, e os `card-02..06.png`).
 - Conectar **WhatsApp/telefone e e-mail reais** nos botões (hoje placeholders `#`).
+- **Contato**: plugar backend real via `window.vnSendContact` (hoje stub que resolve com sucesso).
+- **Footer**: preencher URLs reais das redes sociais (`.foot-soc` hoje `href="#"`).
+- Criar as páginas `/politica-de-privacidade` e `/termos-de-uso` (links já preparados no form e no footer).
 - Revisão final de consistência.
