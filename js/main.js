@@ -56,7 +56,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  // Carrossel "O que fazemos": setas rolam o trilho.
+  // Liga um trilho horizontal a um conjunto de pontos: marca o card atual
+  // e permite tocar num ponto para ir até o card. (mobile)
+  const wireDots = (track, cards, dots) => {
+    if (!track || !dots.length || !cards.length) return;
+    const setActive = () => {
+      const trackLeft = track.getBoundingClientRect().left;
+      let best = 0, bestD = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.getBoundingClientRect().left - trackLeft);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(best, dots.length - 1)));
+    };
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      const target = cards[Math.min(i, cards.length - 1)];
+      const delta = target.getBoundingClientRect().left - track.getBoundingClientRect().left;
+      track.scrollBy({ left: delta, behavior: 'smooth' });
+    }));
+    track.addEventListener('scroll', setActive, { passive: true });
+    window.addEventListener('resize', setActive);
+    setActive();
+  };
+
+  // Carrossel "O que fazemos": setas rolam o trilho + pontos.
   const track = document.querySelector('.cap-track');
   if (track) {
     const step = () => Math.max(240, Math.round(track.clientWidth * 0.72));
@@ -66,28 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
         track.scrollBy({ left: dir * step(), behavior: 'smooth' });
       });
     });
+    wireDots(track, Array.from(track.querySelectorAll('.svc-card')),
+             Array.from(document.querySelectorAll('.cap-dots:not(.seg-dots) .cap-dot')));
+  }
 
-    // Pontos indicadores (mobile): marcam o card atual e permitem tocar para ir a ele.
-    const dots = Array.from(document.querySelectorAll('.cap-dot'));
-    const cards = Array.from(track.querySelectorAll('.svc-card'));
-    if (dots.length && cards.length) {
-      const setActive = () => {
-        const trackLeft = track.getBoundingClientRect().left;
-        let best = 0, bestD = Infinity;
-        cards.forEach((c, i) => {
-          const d = Math.abs(c.getBoundingClientRect().left - trackLeft);
-          if (d < bestD) { bestD = d; best = i; }
-        });
-        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(best, dots.length - 1)));
-      };
-      dots.forEach((dot, i) => dot.addEventListener('click', () => {
-        const target = cards[Math.min(i, cards.length - 1)];
-        const delta = target.getBoundingClientRect().left - track.getBoundingClientRect().left;
-        track.scrollBy({ left: delta, behavior: 'smooth' });
-      }));
-      track.addEventListener('scroll', setActive, { passive: true });
-      window.addEventListener('resize', setActive);
-      setActive();
-    }
+  // Carrossel "Segmentos" (mobile): só pontos.
+  const segTrack = document.querySelector('.seg-grid');
+  if (segTrack) {
+    wireDots(segTrack, Array.from(segTrack.querySelectorAll('.seg-card')),
+             Array.from(document.querySelectorAll('.seg-dots .cap-dot')));
   }
 });

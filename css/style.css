@@ -1073,7 +1073,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .cap-head { flex-direction: column; gap: 16px; }
   .cap-head-right { max-width: none; }
   .cap-nav { display: none; }                    /* scroll horizontal nativo */
-  .cap-dots { display: flex; }                   /* pontos indicam posição/arraste */
+  .cap-dots:not(.seg-dots) { display: flex; }    /* pontos "O que fazemos" (setas somem) */
   .cap-track { scroll-snap-type: x mandatory; }
   .cap-overlay {
     background: radial-gradient(140% 110% at 50% 28%, transparent 46%, rgba(0,0,0,.42));
@@ -1216,6 +1216,26 @@ html.js .reveal.in { opacity: 1; transform: none; }
     border-radius: 14px;
   }
   .seg-go { right: 24px; bottom: 22px; }
+  /* pontos indicadores do carrossel de segmentos */
+  .seg-dots { display: flex; }
+}
+
+/* ---------- MOBILE: Logos — grade compacta (parte 7) ---------- */
+@media (max-width: 600px) {
+  .logo-cell { min-height: 66px; padding: 12px 10px; }
+  .logo-cell img { max-height: 34px; max-width: 84%; opacity: .72; }
+}
+
+/* ---------- MOBILE: Método — cards compactos (parte 8) ---------- */
+@media (max-width: 600px) {
+  .tl-step + .tl-step { margin-top: 12px; }
+  .tl-card { min-height: 0; gap: 13px; padding: 14px 15px; align-items: flex-start; }
+  .tl-icon { width: 34px; height: 34px; }
+  .tl-icon svg { width: 30px; height: 30px; }
+  .tl-head { margin-bottom: 4px; gap: 9px; }
+  .tl-num { font-size: 15px; }
+  .tl-title { font-size: 17px; }
+  .tl-desc { font-size: 12.5px; line-height: 1.46; }
 }
 
 /* acessibilidade — reduz movimento */
