@@ -1183,6 +1183,41 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .svc-card--hero .svc-desc { margin-bottom: 18px; }
 }
 
+/* ---------- MOBILE: Segmentos — carrossel vertical 3:4 (parte 6) ---------- */
+@media (max-width: 600px) {
+  /* de mosaico (muito scroll) para carrossel horizontal */
+  .seg-grid {
+    display: flex; align-items: flex-start;
+    grid-template-columns: none; grid-template-rows: none; grid-auto-rows: auto;
+    gap: 14px; height: auto;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    /* sangra até as bordas p/ o próximo card espiar; padding realinha ao conteúdo */
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 4px var(--gutter) 6px;
+    scroll-padding-left: var(--gutter);
+  }
+  .seg-grid::-webkit-scrollbar { display: none; }
+  /* cards verticais 3:4; largura deixa a borda do próximo visível */
+  .seg-card {
+    flex: 0 0 78%; max-width: 300px;
+    aspect-ratio: 3 / 4;
+    scroll-snap-align: start;
+  }
+  .seg-1, .seg-2, .seg-3, .seg-4 { grid-column: auto; grid-row: auto; }
+  .seg-1 .seg-title { font-size: 22px; }
+  /* texto em painel vitrificado premium (mantém overlays por baixo) */
+  .seg-body {
+    left: 12px; right: 12px; bottom: 12px; max-width: none;
+    padding: 15px 46px 15px 15px;
+    background: linear-gradient(180deg, rgba(14,12,16,.26), rgba(8,7,10,.5));
+    -webkit-backdrop-filter: blur(12px) saturate(1.05);
+            backdrop-filter: blur(12px) saturate(1.05);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 14px;
+  }
+  .seg-go { right: 24px; bottom: 22px; }
+}
+
 /* acessibilidade — reduz movimento */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
