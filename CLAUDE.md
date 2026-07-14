@@ -56,5 +56,6 @@ retornando Promise; sem ela o handler apenas mostra a mensagem de sucesso (stub)
 - Conectar **WhatsApp/telefone e e-mail reais** nos botões (hoje placeholders `#`).
 - **Contato**: plugar backend real via `window.vnSendContact` (hoje stub que resolve com sucesso).
 - **Footer**: preencher URLs reais das redes sociais (`.foot-soc` hoje `href="#"`).
-- Criar as páginas `/politica-de-privacidade` e `/termos-de-uso` (links já preparados no form e no footer).
+- Páginas `/politica-de-privacidade` e `/termos-de-uso` existem como **placeholder** ("em breve", arquivos `politica-de-privacidade.html` / `termos-de-uso.html`) — substituir pelo texto jurídico real.
+- Deploy: **GitHub** (VilaCrunk/vila-nova-site, branch `main`) + **Vercel** (auto-deploy a cada push). URLs limpas via `vercel.json`.
 - Revisão final de consistência.
