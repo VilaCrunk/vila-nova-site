@@ -11,3 +11,7 @@ Desktop.ini
 # Temporários
 *.tmp
 *.log
+
+# Deploy
+.vercel/
+node_modules/
