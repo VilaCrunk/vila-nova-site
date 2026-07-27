@@ -151,14 +151,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     fields.consent.addEventListener('change', () => { refreshSubmit(); showError('consent', !validators.consent()); });
 
-    // Destino dos leads — usado quando o backend/serviço de e-mail for conectado.
+    // Envio dos leads via FormSubmit (sem backend proprio) -> contato@vilanovaconsultoria.com.
+    // Ativacao: no 1o envio, o FormSubmit envia um e-mail de confirmacao para essa caixa;
+    // basta clicar em ativar uma vez. A partir dai, todos os contatos chegam normalmente.
     const CONTACT_EMAIL = 'contato@vilanovaconsultoria.com';
-    // Ponto único de integração futura (backend/serviço de e-mail).
-    // Sem backend agora: resolve para exibir a mensagem de sucesso.
     const deliverContact = (payload) => {
-      payload.to = CONTACT_EMAIL;
       if (typeof window.vnSendContact === 'function') return window.vnSendContact(payload);
-      return Promise.resolve(); // TODO: conectar ao handler real de envio (destino: CONTACT_EMAIL)
+      return fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Novo contato pelo site - Vila Nova',
+          _template: 'table',
+          _captcha: 'false',
+          nome: payload.name,
+          email: payload.email,
+          telefone: payload.phone || '(nao informado)',
+          mensagem: payload.message
+        })
+      }).then((r) => r.json()).then((d) => {
+        if (!d || String(d.success) !== 'true') throw new Error('falha no envio');
+      });
     };
 
     contactForm.addEventListener('submit', (e) => {
