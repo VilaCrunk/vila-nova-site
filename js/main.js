@@ -151,11 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     fields.consent.addEventListener('change', () => { refreshSubmit(); showError('consent', !validators.consent()); });
 
+    // Destino dos leads — usado quando o backend/serviço de e-mail for conectado.
+    const CONTACT_EMAIL = 'contato@vilanovaconsultoria.com';
     // Ponto único de integração futura (backend/serviço de e-mail).
     // Sem backend agora: resolve para exibir a mensagem de sucesso.
     const deliverContact = (payload) => {
+      payload.to = CONTACT_EMAIL;
       if (typeof window.vnSendContact === 'function') return window.vnSendContact(payload);
-      return Promise.resolve(); // TODO: conectar ao handler real de envio
+      return Promise.resolve(); // TODO: conectar ao handler real de envio (destino: CONTACT_EMAIL)
     };
 
     contactForm.addEventListener('submit', (e) => {

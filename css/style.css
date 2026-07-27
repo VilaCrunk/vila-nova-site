@@ -1203,7 +1203,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   }
   /* menos vão vertical, mas com respiro entre os elementos */
   .hero-main { min-height: auto; }
-  .hero-copy { padding: 46px var(--gutter) 40px; }
+  .hero-copy { padding: 62px var(--gutter) 40px; }   /* respiro da 1a frase abaixo do header */
   .hero-headline { font-size: clamp(31px, 8.6vw, 40px); margin: 18px 0 20px; }
   .hero-lead { font-size: 15px; margin: 0 0 32px; }
   /* CTA mais elegante: largura natural, ancorado à esquerda, cantos mais suaves */
