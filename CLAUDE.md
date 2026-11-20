@@ -16,6 +16,7 @@ Não criar copy por conta própria; microcopy de interface nova deve ser validad
 - `assets/img/*.webp` (já otimizadas), `assets/img/logos/*.webp`, `assets/fonts/*.woff2` (auto-hospedadas).
 - Cache-bust: `?v=AAAAMMDD` nos links de CSS/JS — trocar a data ao alterar esses arquivos.
 - Git: branch por trabalho + PR; `main` faz deploy automático na Vercel.
+- Domínio canônico: `https://vilanovaconsultoria.com` (confirmado; verificado no Resend).
 
 ## Backend (Vercel)
 - `api/contato.js` — formulário de contato → grava no Neon e envia e-mail via Resend.
@@ -38,5 +39,4 @@ Não criar copy por conta própria; microcopy de interface nova deve ser validad
 
 ## Pendências
 - URLs reais das redes sociais no rodapé (`.foot-soc` hoje `href="#"`).
-- Confirmar domínio canônico (`https://vilanovaconsultoria.com`) usado em canonical/OG/sitemap.
 - Possível ganho de performance mobile: subset da fonte Newsreader (~270 KB nas duas variantes).
