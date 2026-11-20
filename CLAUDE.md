@@ -1,61 +1,42 @@
 # PROJETO VN SITE — estado do projeto (handoff)
 
-Site institucional estático da **Vila Nova** (planejamento e controle de obras).
+Site institucional da **VN Consultoria / Vila Nova** (planejamento e governança do prazo em obras).
 Direção visual escura/premium (preto + âmbar/cobre) com seções claras (ivory) intercaladas.
+Copy: **somente** do documento "Retrofit_Copy_Site_Implementacao_Final" (escrito pela Marina).
+Não criar copy por conta própria; microcopy de interface nova deve ser validada.
 
 ## Stack e arquivos
-- HTML/CSS/JS vanilla, sem build.
-- `index.html` (única página) · `css/style.css` (tudo) · `js/main.js` · `assets/img/`.
-- Git: um commit por etapa. Ver histórico: `git log --oneline`.
+- HTML/CSS/JS vanilla, sem build. Funções serverless em `api/` (Vercel, Node ESM).
+- Páginas: `index.html`, `o-que-fazemos.html`, `segmentos.html`, `treinamentos.html`,
+  `politica-de-privacidade.html`, `termos-de-uso.html`, `404.html`.
+  Header, footer e banner de cookies estão **repetidos em todas** — alterar em todas.
+- `css/style.css` (tudo; bloco final "RETROFIT VN 2027") · `js/main.js` (menu, carrossel, contato, cookies).
+- Quiz "Avalie sua obra": `js/avalie/conteudo.js` (textos do Autodiagnóstico), `motor.js`
+  (regras do §8, sem pontuação 0–30), `app.js` (interface).
+- `assets/img/*.webp` (já otimizadas), `assets/img/logos/*.webp`, `assets/fonts/*.woff2` (auto-hospedadas).
+- Cache-bust: `?v=AAAAMMDD` nos links de CSS/JS — trocar a data ao alterar esses arquivos.
+- Git: branch por trabalho + PR; `main` faz deploy automático na Vercel.
 
-## Como visualizar
-- Servir local: `python -m http.server 8137` (na raiz) → abrir `http://127.0.0.1:8137`.
-- **O preview embutido do Claude NÃO pinta pixels** (screenshots travam; transições/IO/lazy não rodam).
-  Verifique layout por **geometria/getComputedStyle via JS**, ou peça pro usuário olhar no navegador dele.
-- **CSS e JS ficam cacheados no preview** — force refetch trocando o `href` do stylesheet com `?v=timestamp`, ou o usuário dá Ctrl+F5.
+## Backend (Vercel)
+- `api/contato.js` — formulário de contato → grava no Neon e envia e-mail via Resend.
+- `api/avaliacao.js` — eventos do quiz (só com cookies aceitos), resultado anônimo, cópia por e-mail.
+- Variáveis de ambiente: `DATABASE_URL` (Neon, via Vercel Storage), `RESEND_API_KEY`,
+  opcionais `CONTACT_TO` (padrão contato@vilanovaconsultoria.com) e `MAIL_FROM`.
+  As tabelas são criadas automaticamente na primeira requisição.
+- DNS na HostGator; e-mail na Titan — **não mexer nos registros MX**.
 
-## Design tokens (`:root` em style.css)
-- Escuro: `--page #08090b`, `--amber #d69a4e`, `--amber-bright #e7ac60`, `--offwhite`, `--warm-gray`.
-- Claro (seções ivory): `--ivory #f3efe6`, `--charcoal`, `--charcoal-soft`, `--amber-deep #9c6a1c`.
-- Fontes: **Newsreader** (display/serif) + **Hanken Grotesk** (corpo/UI). `--maxw 1280`, `--gutter`.
+## Testes e verificação
+- `npm install` e `npm test` (motor do quiz + API com fetch simulado, sem banco).
+- Servir local: `python -m http.server 8137` (sem URLs limpas: abrir `/segmentos.html` etc.;
+  `/api` não roda local — use `vercel dev` ou simule).
+- Desktop aprovado não deve mudar ao mexer no mobile: conferir 1280px e 390px.
 
-## Seções (todas implementadas, header→footer)
-Header (barra flutuante) · Hero (imagem `Hero-obra.png` + régua) · Sobre · **O que fazemos** (cápsula escura + carrossel de 6 cards) · Segmentos (mosaico, imgs `Edificacoes/Logistica/Infraestrutura/Complexas.png`) · Logos · Método (timeline, `metodo-background.png`) · Diagnóstico (`diagnostico-background.png`) · CTA final · Footer (logo `logo-modelo4-trim.png`).
+## LGPD / cookies
+- Banner Aceitar/Rejeitar (`localStorage` `vn-cookies`). Vercel Web Analytics e métricas do quiz
+  só carregam com "Aceitar". Link "Preferências de cookies" no rodapé reabre o banner.
+- Qualquer novo dado coletado ou fornecedor deve entrar na Política de Privacidade.
 
-## Fluxo de imagens
-- Imagens grandes tratadas ficam em `assets/img/`. Ao receber JPG com fundo, remover fundo (Pillow, chave de luminância) e recortar padding → salvar `*-trim.png`.
-- Fundo da cápsula "O que fazemos" = `.cap-photo` via `--services-photo` (fazemos-background.png).
-
-## TAREFA CONCLUÍDA (cards "O que fazemos")
-Cards 02–06 do carrossel preenchidos com fotos. Fotos copiadas para nomes sem espaço
-(`assets/img/card-02.png` … `card-06.png`) e apontadas via `--card-photo` nas classes
-`.svc-2`…`.svc-6` (base do card, `.svc-media` com `cover` + overlay escuro).
-Cards 02–06 crescem para **243×442** e ficam **todos do mesmo tamanho**; **card 01**
-(`.svc-card--hero`) permanece com o mini-gráfico CSS e **não cresce**.
-Obs.: os PNGs originais com espaço/`01 gestao prazo.png` continuam na pasta (não usados pelo site).
-
-## Ajustes de mobile (só mobile — desktop aprovado NÃO deve mudar)
-Refinamentos isolados em `@media (max-width:820px)` (header) e novos blocos `@media (max-width:600px)`.
-Verificar sempre desktop (1280) após mexer: burger some, régua volta a faixa full-width 4 col.
-- **Header**: botão de menu com fundo/borda âmbar e área de toque 44×40; ícone usa `--amber-bright`
-  (antes usava `--on-dark` inexistente → invisível). Logo 15px no mobile.
-- **Hero**: usa `Hero-mobile.png` (retrato 9:16) via override de `--hero-photo`; padding vertical
-  reduzido; elementos aproximados; CTA largura natural à esquerda.
-- **Régua**: no mobile `.ruler-track` vira cápsula vitrificada (blur + borda âmbar sutil, cantos 20px),
-  dentro do hero, 2×2; `.hero-ruler` perde a faixa/linha full-width só no mobile.
-- **Sobre**: pills maiores e com mais contraste.
-
-## Contato — formulário inline
-Botão "Enviar e-mail" (`#emailToggle`) abre/fecha o form `#contactForm` na própria seção
-(sem mailto/nova aba). CSS `.contact-panel` anima via `max-height`. Validação + estado do
-botão em `js/main.js`. **Integração de envio**: definir `window.vnSendContact(payload)`
-retornando Promise; sem ela o handler apenas mostra a mensagem de sucesso (stub).
-
-## Pendências finais
-- Converter PNGs pesados (~1–3 MB cada) para **WebP** (hero, segmentos, método, diagnóstico, cápsula, e os `card-02..06.png`).
-- Conectar **WhatsApp/telefone e e-mail reais** nos botões (hoje placeholders `#`).
-- **Contato**: plugar backend real via `window.vnSendContact` (hoje stub que resolve com sucesso).
-- **Footer**: preencher URLs reais das redes sociais (`.foot-soc` hoje `href="#"`).
-- Páginas `/politica-de-privacidade` e `/termos-de-uso` existem como **placeholder** ("em breve", arquivos `politica-de-privacidade.html` / `termos-de-uso.html`) — substituir pelo texto jurídico real.
-- Deploy: **GitHub** (VilaCrunk/vila-nova-site, branch `main`) + **Vercel** (auto-deploy a cada push). URLs limpas via `vercel.json`.
-- Revisão final de consistência.
+## Pendências
+- URLs reais das redes sociais no rodapé (`.foot-soc` hoje `href="#"`).
+- Confirmar domínio canônico (`https://vilanovaconsultoria.com`) usado em canonical/OG/sitemap.
+- Possível ganho de performance mobile: subset da fonte Newsreader (~270 KB nas duas variantes).

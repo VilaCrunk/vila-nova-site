@@ -3,34 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VN Consultoria | Planejamento que Protege Resultados</title>
+  <meta name="description" content="Clareza executiva para obras que não podem perder o controle. A VN ajuda empresas a antecipar riscos, coordenar decisões e proteger os resultados de seus empreendimentos.">
+  <link rel="canonical" href="https://vilanovaconsultoria.com/">
+  <meta name="theme-color" content="#08090b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="VN Consultoria">
+  <meta property="og:title" content="VN Consultoria - Planejamento que Protege Resultados">
+  <meta property="og:description" content="Clareza executiva para obras que não podem perder o controle. A VN ajuda empresas a antecipar riscos, coordenar decisões e proteger os resultados de seus empreendimentos.">
+  <meta property="og:url" content="https://vilanovaconsultoria.com/">
+  <meta property="og:image" content="https://vilanovaconsultoria.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <title>Vila Nova - Planejamento que protege resultados</title>
-  <meta name="description" content="Clareza executiva, governança e controle de prazo para obras complexas.">
 
   <!-- ativa o modo JS (reveal); sem JS o conteúdo aparece normalmente -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Fontes: Newsreader (display, serif editorial) + Hanken Grotesk (corpo/UI) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css?v=1785253428">
+  <!-- Fontes hospedadas no próprio site (sem Google Fonts: mais rápido e sem enviar o IP do visitante a terceiros) -->
+  <link rel="preload" href="/assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="/assets/img/hero-obra.webp" type="image/webp" media="(min-width: 601px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/img/hero-mobile.webp" type="image/webp" media="(max-width: 600px)" fetchpriority="high">
+  <link rel="stylesheet" href="/css/style.css?v=20261120">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://vilanovaconsultoria.com/#empresa","name":"VN Consultoria","legalName":"Vila Nova Consultoria e Engenharia Ltda","alternateName":["Vila Nova Consultoria","VN Engenharia"],"taxID":"28.113.227/0001-62","url":"https://vilanovaconsultoria.com/","logo":"https://vilanovaconsultoria.com/assets/img/logo-rodape.webp","image":"https://vilanovaconsultoria.com/assets/img/og-image.jpg","slogan":"Planejamento que Protege Resultados","description":"Consultoria em planejamento, governança do prazo e gestão de obras.","email":"contato@vilanovaconsultoria.com","telephone":"+55-71-99966-6462","address":{"@type":"PostalAddress","addressLocality":"Salvador","addressRegion":"BA","addressCountry":"BR"},"areaServed":{"@type":"Country","name":"Brasil"},"founder":{"@id":"https://vilanovaconsultoria.com/#marina"},"knowsAbout":["Governança do Prazo","Planejamento de obras","Gestão de prazo","Treinamentos técnicos em planejamento"]},{"@type":"Person","@id":"https://vilanovaconsultoria.com/#marina","name":"Marina Vila Nova","jobTitle":"Fundadora da VN Consultoria","description":"Engenheira de Produção, com mais de 15 anos de experiência em planejamento e gestão de obras.","image":"https://vilanovaconsultoria.com/assets/img/marina-vila-nova.webp","worksFor":{"@id":"https://vilanovaconsultoria.com/#empresa"}},{"@type":"WebSite","@id":"https://vilanovaconsultoria.com/#site","url":"https://vilanovaconsultoria.com/","name":"VN Consultoria","inLanguage":"pt-BR","publisher":{"@id":"https://vilanovaconsultoria.com/#empresa"}}]}</script>
 </head>
-<body>
+<body class="">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- ============================================================
-       HEADER - barra flutuante sobre o hero
+       HEADER - barra flutuante
        ============================================================ -->
   <header class="hdr">
     <div class="hdr-inner">
       <div class="hdr-bar">
-        <a class="hdr-logo" href="#inicio" aria-label="Vila Nova - início">
-          <img src="assets/img/logo-header-trim.png" alt="Vila Nova">
+        <a class="hdr-logo" href="#inicio" aria-label="VN Consultoria - início">
+          <img src="/assets/img/logo-header.webp" alt="Vila Nova" width="700" height="54">
         </a>
-        <button class="hdr-burger" id="hdrBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="hdrMenu">
+        <button class="hdr-burger" id="hdrBurger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="hdrMenu">
           <span></span><span></span><span></span>
         </button>
         <nav class="hdr-menu" id="hdrMenu" aria-label="Navegação principal">
@@ -41,59 +55,57 @@
             <li><a href="/treinamentos">Treinamentos</a></li>
             <li><a href="#sobre">Sobre</a></li>
           </ul>
-          <a class="hdr-cta" href="#diagnostico">Solicitar diagnóstico</a>
+          <a class="hdr-cta" href="#contato">Conversar com a VN</a>
         </nav>
       </div>
     </div>
   </header>
 
+  <main id="conteudo">
+
   <!-- ============================================================
-       HERO + RÉGUA DE EXPERIÊNCIA
+       A01 — CAPA + RÉGUA DE EXPERIÊNCIA
        ============================================================ -->
   <section class="hero" id="inicio">
     <div class="hero-block">
 
-      <!-- Fundo full-bleed: obra cobre todo o bloco (inclusive atrás da régua).
-           Trocar imagem: alterar --hero-photo em .hero-photo (css).
-           Dados (Prazo/Risco/Custo/Avanço) estão embutidos na própria foto. -->
       <div class="hero-media">
         <div class="hero-photo" role="img" aria-label="Obra em construção com indicadores de Prazo, Risco, Custo e Avanço"></div>
         <div class="hero-media-fade" aria-hidden="true"></div>
       </div>
 
       <div class="hero-main">
-        <!-- copy limpa, contraste máximo -->
         <div class="hero-copy">
-          <p class="eyebrow reveal">Planejamento que protege resultados</p>
+          <p class="eyebrow reveal">Planejamento que Protege Resultados</p>
           <h1 class="hero-headline reveal">Clareza executiva para obras que não podem perder o controle.</h1>
-          <p class="hero-lead reveal">Transformamos prazo, governança e informações dispersas em inteligência aplicada à execução, para que decisões críticas aconteçam antes que o resultado seja perdido.</p>
+          <p class="hero-lead reveal">Atrasos, decisões tardias e falta de coordenação comprometem mais do que o cronograma. A VN ajuda empresas a antecipar riscos, coordenar decisões e proteger os resultados de seus empreendimentos.</p>
           <div class="hero-cta reveal">
             <a class="btn btn-primary" href="#contato">
-              Solicitar diagnóstico
+              Conversar sobre minha obra
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Régua de experiência: integrada à base do bloco escuro -->
+      <!-- Indicadores aprovados (A02): valores mantidos, descrições substituídas -->
       <div class="hero-ruler reveal">
         <div class="ruler-track">
         <div class="metric">
           <span class="m-num">15<i>+</i></span>
-          <span class="m-desc">Anos de experiência em gestão de obras e planejamento</span>
+          <span class="m-desc">Anos de experiência em planejamento e gestão de obras</span>
         </div>
         <div class="metric">
           <span class="m-num">100<i>+</i></span>
-          <span class="m-desc">Projetos planejados, acompanhados e reorganizados</span>
+          <span class="m-desc">Projetos com atuação em planejamento, controle e gestão de prazo</span>
         </div>
         <div class="metric">
           <span class="m-num">R$ 1Bi<i>+</i></span>
-          <span class="m-desc">Em obras com atuação direta ou consultiva</span>
+          <span class="m-desc">Em empreendimentos com participação técnica direta ou consultiva</span>
         </div>
         <div class="metric">
           <span class="m-num">Brasil</span>
-          <span class="m-desc">Atendimento nacional em infraestrutura, logística e construção</span>
+          <span class="m-desc">Experiência em empreendimentos de diferentes portes e segmentos</span>
         </div>
         </div>
       </div>
@@ -102,7 +114,7 @@
   </section>
 
   <!-- ============================================================
-       SOBRE A VILA NOVA - faixa editorial clara (quebra entre blocos escuros)
+       A02 — SOBRE A VILA NOVA
        ============================================================ -->
   <section class="about sec-ivory" id="sobre" aria-labelledby="about-h">
     <div class="about-grid-bg" aria-hidden="true"></div>
@@ -111,33 +123,30 @@
     <div class="about-inner">
       <div class="about-grid">
 
-        <!-- esquerda (~45%) -->
         <div class="about-left">
           <span class="eyebrow about-eyebrow reveal">Sobre a Vila Nova</span>
-          <h2 id="about-h" class="about-headline reveal">Consultoria em gestão de prazo, governança e inteligência aplicada à execução.</h2>
+          <h2 id="about-h" class="about-headline reveal">Transformamos planejamento em decisões que protegem os resultados da sua obra.</h2>
           <ul class="about-pills reveal">
             <li class="pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/></svg>
+              Visão executiva
+            </li>
+            <li class="pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/><path d="M12 8v4l2.5 1.5"/></svg>
+              Governança do prazo
+            </li>
+            <li class="pill">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8 15l3-4 3 2 4-6"/></svg>
-              Planejamento executivo
-            </li>
-            <li class="pill">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/><path d="M9 12l2 2 4-4"/></svg>
-              Governança de obra
-            </li>
-            <li class="pill">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
-              Decisão aplicada
+              Decisões antecipadas
             </li>
           </ul>
         </div>
 
-        <!-- divisor -->
         <div class="about-divider" aria-hidden="true"></div>
 
-        <!-- direita (~55%) -->
         <div class="about-right reveal">
-          <p>A Vila Nova nasceu da convicção de que planejamento não deve ser tratado como uma ferramenta de controle, mas como um sistema de gestão capaz de proteger resultados, reduzir riscos e apoiar decisões em ambientes complexos.</p>
-          <p>Atuamos ao lado de empresas que enfrentam desafios de prazo, integração entre áreas, baixa previsibilidade e pressão por resultados, transformando informações dispersas em inteligência aplicada à execução.</p>
+          <p>A Vila Nova nasceu da convicção de que planejamento não deve apenas registrar o que acontece na obra. Deve permitir antecipar riscos, coordenar responsabilidades e orientar decisões enquanto ainda existe tempo para agir.</p>
+          <p>Combinamos experiência técnica, visão sistêmica e julgamento especializado para ajudar empresas a enfrentar desafios de prazo, superar fragilidades de gestão e ampliar a previsibilidade de seus empreendimentos.</p>
         </div>
 
       </div>
@@ -145,13 +154,12 @@
   </section>
 
   <!-- ============================================================
-       O QUE FAZEMOS - cápsula escura + carrossel de soluções
+       A03 — O QUE FAZEMOS (vitrine: três cards, todos em código)
        ============================================================ -->
   <section class="services" id="servicos" aria-labelledby="svc-h">
     <div class="services-wrap">
       <div class="services-capsule">
 
-        <!-- fundo: obra escurecida (placeholder) + overlay + vinheta -->
         <div class="cap-bg" aria-hidden="true">
           <div class="cap-photo"></div>
           <div class="cap-overlay"></div>
@@ -159,38 +167,29 @@
 
         <div class="cap-inner">
 
-          <!-- topo -->
           <div class="cap-head">
             <div class="cap-head-left reveal">
               <span class="eyebrow cap-eyebrow">O que fazemos</span>
-              <h2 id="svc-h" class="cap-title">Gestão de prazo com clareza executiva.</h2>
+              <h2 id="svc-h" class="cap-title">Sua obra precisa de decisões melhores. Nós ajudamos a criar as condições para isso.</h2>
             </div>
             <div class="cap-head-right reveal">
-              <p class="cap-support">Da estruturação do cronograma ao treinamento da equipe, organizamos o controle da obra para reduzir desvios, recuperar ritmo e apoiar decisões críticas.</p>
-              <div class="cap-nav">
-                <button class="cap-arrow" data-dir="prev" aria-label="Anterior">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-                </button>
-                <button class="cap-arrow" data-dir="next" aria-label="Próximo">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </button>
-              </div>
+              <p class="cap-support">Atuamos onde a falta de coordenação, a fragilidade do planejamento e as decisões tardias colocam os resultados em risco. Nossa consultoria transforma essas condições por meio de governança, intervenções especializadas e desenvolvimento de equipes.</p>
             </div>
           </div>
 
-          <!-- carrossel -->
           <div class="cap-track reveal">
 
-            <!-- 01 - protagonista -->
-            <article class="svc-card svc-card--hero">
+            <!-- 01 — Governança do Prazo -->
+            <article class="svc-card">
               <span class="svc-num">01</span>
-              <span class="svc-tag">Controle executivo</span>
-              <h3 class="svc-title">Gestão de prazo</h3>
-              <p class="svc-desc">Monitoramento contínuo dos desvios, marcos e produtividade para dar previsibilidade à obra e apoiar decisões críticas.</p>
+              <span class="svc-tag">Coordenação e previsibilidade</span>
+              <h3 class="svc-title">Governança do Prazo</h3>
+              <p class="svc-lead">Sua obra tem um cronograma. Mas ele ajuda a antecipar problemas e orientar decisões?</p>
+              <p class="svc-desc">Estruturamos ou fortalecemos a gestão do prazo para conectar execução, responsabilidades e decisões, ampliando a previsibilidade da obra.</p>
               <div class="svc-chart" aria-hidden="true">
                 <div class="chart-top">
-                  <span class="chart-label">Desempenho do prazo</span>
-                  <span class="chart-figs"><span class="chart-val">86<i>%</i></span><span class="chart-sub">Índice de cumprimento</span></span>
+                  <span class="chart-label">Previsibilidade do prazo</span>
+                  <span class="chart-chip">Alerta antecipado</span>
                 </div>
                 <div class="chart-plot">
                   <svg class="chart-svg" viewBox="0 0 300 90" preserveAspectRatio="none">
@@ -213,84 +212,72 @@
               <span class="svc-go" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </span>
-              <a class="card-link" href="/o-que-fazemos#gestao-de-prazo" aria-label="Ver Gestão de prazo"></a>
+              <a class="card-link" href="/o-que-fazemos#governanca-do-prazo" aria-label="Ver Governança do Prazo"></a>
             </article>
 
-            <!-- 02 -->
-            <article class="svc-card svc-2">
+            <!-- 02 — Soluções Estratégicas -->
+            <article class="svc-card">
               <span class="svc-num">02</span>
-              <span class="svc-tag">Base de controle</span>
-              <h3 class="svc-title">Estruturação de cronogramas</h3>
-              <p class="svc-desc">Cronogramas realistas, sequenciados e prontos para orientar a execução da obra.</p>
-              <div class="svc-media" aria-hidden="true"></div>
+              <span class="svc-tag">Desafios específicos</span>
+              <h3 class="svc-title">Soluções Estratégicas</h3>
+              <p class="svc-lead">Quando um problema específico ameaça o andamento da obra, é preciso compreender suas causas e consequências.</p>
+              <p class="svc-desc">Aplicamos análise especializada para esclarecer situações críticas, fortalecer mecanismos de gestão e apoiar decisões direcionadas.</p>
+              <div class="svc-chart" aria-hidden="true">
+                <div class="chart-top">
+                  <span class="chart-label">Análise da situação crítica</span>
+                  <span class="chart-chip">Ponto crítico</span>
+                </div>
+                <svg class="chart-svg chart-svg--gantt" viewBox="0 0 300 90" preserveAspectRatio="none">
+                  <line class="chart-grid" x1="0" y1="22.5" x2="300" y2="22.5"/>
+                  <line class="chart-grid" x1="0" y1="45" x2="300" y2="45"/>
+                  <line class="chart-grid" x1="0" y1="67.5" x2="300" y2="67.5"/>
+                  <rect class="g-bar" x="6" y="6" width="104" height="9" rx="4.5"/>
+                  <rect class="g-bar" x="64" y="29" width="92" height="9" rx="4.5"/>
+                  <rect class="g-bar g-bar--hot" x="132" y="52" width="88" height="9" rx="4.5"/>
+                  <rect class="g-bar g-bar--ghost" x="196" y="75" width="98" height="9" rx="4.5"/>
+                  <path class="g-link" d="M110 10.5 H120 V33.5 H64"/>
+                  <path class="g-link g-link--hot" d="M220 56.5 H232 V79.5 H196"/>
+                  <line class="g-now" x1="176" y1="0" x2="176" y2="90"/>
+                </svg>
+                <div class="chart-x"><span>Causa</span><span>Impacto</span><span>Decisão</span></div>
+              </div>
               <span class="svc-go" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </span>
-              <a class="card-link" href="/o-que-fazemos#estruturacao-de-cronogramas" aria-label="Ver Estruturação de cronogramas"></a>
+              <a class="card-link" href="/o-que-fazemos#solucoes-estrategicas" aria-label="Ver Soluções Estratégicas"></a>
             </article>
 
-            <!-- 03 -->
-            <article class="svc-card svc-3">
+            <!-- 03 — Treinamentos Técnicos -->
+            <article class="svc-card">
               <span class="svc-num">03</span>
-              <span class="svc-tag">Plano operacional</span>
-              <h3 class="svc-title">Planejamento executivo</h3>
-              <p class="svc-desc">Integração entre escopo, frentes, recursos e estratégia para transformar plano em operação.</p>
-              <div class="svc-media" aria-hidden="true"></div>
+              <span class="svc-tag">Desenvolvimento de equipes</span>
+              <h3 class="svc-title">Treinamentos Técnicos</h3>
+              <p class="svc-lead">Equipes que sabem interpretar o planejamento estão mais preparadas para reconhecer riscos e agir.</p>
+              <p class="svc-desc">Desenvolvemos competências práticas para transformar informações de planejamento em coordenação, análise e decisões no dia a dia da obra.</p>
+              <div class="svc-chart" aria-hidden="true">
+                <div class="chart-top">
+                  <span class="chart-label">Competências da equipe</span>
+                  <span class="chart-chip">Na prática</span>
+                </div>
+                <ul class="skill-bars">
+                  <li><span>Coordenação</span><i style="--w:62%"></i></li>
+                  <li><span>Análise</span><i style="--w:78%"></i></li>
+                  <li><span>Decisão</span><i style="--w:90%"></i></li>
+                </ul>
+              </div>
               <span class="svc-go" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </span>
-              <a class="card-link" href="/o-que-fazemos#planejamento-executivo" aria-label="Ver Planejamento executivo"></a>
-            </article>
-
-            <!-- 04 -->
-            <article class="svc-card svc-4">
-              <span class="svc-num">04</span>
-              <span class="svc-tag">Correção de rota</span>
-              <h3 class="svc-title">Recuperação de cronogramas</h3>
-              <p class="svc-desc">Diagnóstico e replanejamento para recuperar ritmo e reduzir impactos no prazo final.</p>
-              <div class="svc-media" aria-hidden="true"></div>
-              <span class="svc-go" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-              <a class="card-link" href="/o-que-fazemos#recuperacao-de-cronogramas" aria-label="Ver Recuperação de cronogramas"></a>
-            </article>
-
-            <!-- 05 -->
-            <article class="svc-card svc-5">
-              <span class="svc-num">05</span>
-              <span class="svc-tag">Ritmo decisório</span>
-              <h3 class="svc-title">Governança de prazo</h3>
-              <p class="svc-desc">Rituais, indicadores e critérios de decisão para manter a obra sob controle.</p>
-              <div class="svc-media" aria-hidden="true"></div>
-              <span class="svc-go" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-              <a class="card-link" href="/o-que-fazemos#governanca-de-prazo" aria-label="Ver Governança de prazo"></a>
-            </article>
-
-            <!-- 06 -->
-            <article class="svc-card svc-6">
-              <span class="svc-num">06</span>
-              <span class="svc-tag">Maturidade interna</span>
-              <h3 class="svc-title">Treinamento empresarial</h3>
-              <p class="svc-desc">Capacitação prática para elevar a maturidade da equipe em planejamento e controle.</p>
-              <div class="svc-media" aria-hidden="true"></div>
-              <span class="svc-go" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-              <a class="card-link" href="/o-que-fazemos#treinamento-empresarial" aria-label="Ver Treinamento empresarial"></a>
+              <a class="card-link" href="/o-que-fazemos#treinamentos-tecnicos" aria-label="Ver Treinamentos Técnicos"></a>
             </article>
 
           </div>
 
-          <!-- indicador de posição (mobile): 6 pontos = 6 cards -->
-          <div class="cap-dots" role="tablist" aria-label="Navegação dos cards">
-            <button class="cap-dot" type="button" aria-label="Ir ao card 1"></button>
-            <button class="cap-dot" type="button" aria-label="Ir ao card 2"></button>
-            <button class="cap-dot" type="button" aria-label="Ir ao card 3"></button>
-            <button class="cap-dot" type="button" aria-label="Ir ao card 4"></button>
-            <button class="cap-dot" type="button" aria-label="Ir ao card 5"></button>
-            <button class="cap-dot" type="button" aria-label="Ir ao card 6"></button>
+          <!-- indicador de posição (mobile): 3 pontos = 3 cards -->
+          <div class="cap-dots" aria-hidden="true">
+            <button class="cap-dot" type="button" tabindex="-1"></button>
+            <button class="cap-dot" type="button" tabindex="-1"></button>
+            <button class="cap-dot" type="button" tabindex="-1"></button>
           </div>
         </div>
       </div>
@@ -298,7 +285,7 @@
   </section>
 
   <!-- ============================================================
-       SEGMENTOS DE ATUAÇÃO - mosaico editorial de obras
+       A04 — SEGMENTOS DE ATUAÇÃO (vitrine)
        ============================================================ -->
   <section class="segments sec-ivory" id="obras" aria-labelledby="seg-h">
     <div class="about-grid-bg" aria-hidden="true"></div>
@@ -306,122 +293,113 @@
     <div class="segments-inner">
       <div class="seg-head">
         <span class="eyebrow seg-eyebrow reveal">Segmentos de atuação</span>
-        <h2 id="seg-h" class="seg-title-main reveal">Planejamento aplicado em diferentes tipos de obras</h2>
-        <p class="seg-support reveal">Mais de 15 anos atuando em obras de infraestrutura, logística, edificações e sistemas complexos de engenharia.</p>
+        <h2 id="seg-h" class="seg-title-main reveal">Cada obra tem seus desafios. Todas precisam de decisões confiáveis.</h2>
+        <p class="seg-support reveal">Com experiência em diferentes segmentos da engenharia e construção, ajudamos empresas a enfrentar os desafios de prazo, coordenação e previsibilidade próprios de cada empreendimento.</p>
       </div>
 
       <div class="seg-grid reveal">
 
-        <!-- 01 - Edificações (grande, à esquerda) -->
         <article class="seg-card seg-1">
-          <div class="seg-img" role="img" aria-label="Edificações - obra predial"></div>
+          <img class="seg-img" src="/assets/img/segmento-edificacoes.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async">
           <div class="seg-shade" aria-hidden="true"></div>
           <div class="seg-body">
             <span class="seg-tick" aria-hidden="true"></span>
             <span class="seg-num">01.</span>
             <h3 class="seg-title">Edificações</h3>
-            <p class="seg-desc">Residenciais, corporativas, educacionais e industriais.</p>
+            <p class="seg-desc">Múltiplas disciplinas, interfaces e entregas que precisam avançar de forma coordenada.</p>
           </div>
-          <span class="seg-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
+          <span class="seg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <a class="card-link" href="/segmentos#edificacoes" aria-label="Ver Edificações"></a>
         </article>
 
-        <!-- 02 - Logística (horizontal, topo direito) -->
         <article class="seg-card seg-2">
-          <div class="seg-img" role="img" aria-label="Logística - galpão e centro de distribuição"></div>
+          <img class="seg-img" src="/assets/img/segmento-logistica.webp" alt="" width="1672" height="941" loading="lazy" decoding="async">
           <div class="seg-shade" aria-hidden="true"></div>
           <div class="seg-body">
             <span class="seg-tick" aria-hidden="true"></span>
             <span class="seg-num">02.</span>
             <h3 class="seg-title">Logística</h3>
-            <p class="seg-desc">Centros de distribuição, galpões e operações.</p>
+            <p class="seg-desc">Prazos de implantação conectados à entrada em operação e aos compromissos do negócio.</p>
           </div>
-          <span class="seg-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
+          <span class="seg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <a class="card-link" href="/segmentos#logistica" aria-label="Ver Logística"></a>
         </article>
 
-        <!-- 03 - Infraestrutura (base direita) -->
         <article class="seg-card seg-3">
-          <div class="seg-img" role="img" aria-label="Infraestrutura - redes e contenções"></div>
+          <img class="seg-img" src="/assets/img/segmento-infraestrutura.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async">
           <div class="seg-shade" aria-hidden="true"></div>
           <div class="seg-body">
             <span class="seg-tick" aria-hidden="true"></span>
             <span class="seg-num">03.</span>
             <h3 class="seg-title">Infraestrutura</h3>
-            <p class="seg-desc">Redes, drenagem, contenções e travessias.</p>
+            <p class="seg-desc">Frentes dispersas, interferências e liberações que condicionam a continuidade da execução.</p>
           </div>
-          <span class="seg-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
+          <span class="seg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <a class="card-link" href="/segmentos#infraestrutura" aria-label="Ver Infraestrutura"></a>
         </article>
 
-        <!-- 04 - Obras complexas (base direita, ao lado de Infraestrutura) -->
         <article class="seg-card seg-4">
-          <div class="seg-img" role="img" aria-label="Obras complexas - ponte marítima em construção"></div>
+          <img class="seg-img" src="/assets/img/segmento-complexas.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async">
           <div class="seg-shade" aria-hidden="true"></div>
           <div class="seg-body">
             <span class="seg-tick" aria-hidden="true"></span>
             <span class="seg-num">04.</span>
             <h3 class="seg-title">Obras complexas</h3>
-            <p class="seg-desc">Interfaces, riscos e decisões simultâneas.</p>
+            <p class="seg-desc">Múltiplas decisões, agentes e riscos que exigem coordenação e visibilidade executiva.</p>
           </div>
-          <span class="seg-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
+          <span class="seg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <a class="card-link" href="/segmentos#obras-complexas" aria-label="Ver Obras complexas"></a>
         </article>
 
       </div>
 
-      <!-- indicador de posição (mobile): 4 pontos = 4 cards -->
-      <div class="cap-dots seg-dots" role="tablist" aria-label="Navegação dos segmentos">
-        <button class="cap-dot" type="button" aria-label="Ir ao segmento 1"></button>
-        <button class="cap-dot" type="button" aria-label="Ir ao segmento 2"></button>
-        <button class="cap-dot" type="button" aria-label="Ir ao segmento 3"></button>
-        <button class="cap-dot" type="button" aria-label="Ir ao segmento 4"></button>
+      <div class="cap-dots seg-dots" aria-hidden="true">
+        <button class="cap-dot" type="button" tabindex="-1"></button>
+        <button class="cap-dot" type="button" tabindex="-1"></button>
+        <button class="cap-dot" type="button" tabindex="-1"></button>
+        <button class="cap-dot" type="button" tabindex="-1"></button>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       PROVA SOCIAL - logos de organizações (fundo sem grade)
+       A05 — EXPERIÊNCIA E TRAJETÓRIA (grade de organizações)
        ============================================================ -->
   <section class="logos" id="clientes" aria-labelledby="logos-h">
     <div class="logos-inner">
       <div class="logos-head">
-        <span class="eyebrow logos-eyebrow reveal" id="logos-h">Conhecimento construído ao lado de grandes organizações</span>
-        <p class="logos-support reveal">Repertório aplicado em projetos, operações e ambientes de alta exigência.</p>
+        <div class="logos-head-left">
+          <span class="eyebrow logos-eyebrow reveal">Experiência e trajetória</span>
+          <h2 id="logos-h" class="logos-title reveal">Experiência construída em projetos de grandes organizações.</h2>
+        </div>
+        <p class="logos-support reveal">Uma trajetória desenvolvida em empreendimentos de diferentes portes e complexidades, reunindo conhecimento técnico, visão executiva e experiência em ambientes de alta exigência.</p>
       </div>
 
       <div class="logos-wall reveal">
-        <div class="logo-cell"><img src="assets/img/mercado-livre-logo.png" alt="Mercado Livre" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/SESI.png" alt="SESI" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/FIEB.png" alt="FIEB" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/CCCC.png" alt="CCCC" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/ponte-salvador-itaparica.png" alt="Ponte Salvador-Itaparica" loading="lazy"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/mercado-livre.webp" alt="Mercado Livre" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/sesi.webp" alt="SESI" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/fieb.webp" alt="FIEB" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/cccc.webp" alt="CCCC" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/ponte-salvador-itaparica.webp" alt="Ponte Salvador-Itaparica" width="360" height="180" loading="lazy" decoding="async"></div>
 
-        <div class="logo-cell"><img src="assets/img/O-BOTICARIO.png" alt="O Boticário" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/queiroz-galvao.png" alt="Queiroz Galvão" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/andrade-mendonca.png" alt="Andrade Mendonça" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/AXXO.png" alt="AXXO" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/senai-cimatec.png" alt="SENAI CIMATEC" loading="lazy"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/o-boticario.webp" alt="O Boticário" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/queiroz-galvao.webp" alt="Queiroz Galvão" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/andrade-mendonca.webp" alt="Andrade Mendonça" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/axxo.webp" alt="AXXO" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/senai-cimatec.webp" alt="SENAI CIMATEC" width="360" height="180" loading="lazy" decoding="async"></div>
 
-        <div class="logo-cell"><img src="assets/img/ODEBRECHT.png" alt="OEC - Odebrecht Engenharia e Construção" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/nova-lapa.png" alt="Nova Lapa" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/NORCON.png" alt="Norcon" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/COSIL.png" alt="Cosil" loading="lazy"></div>
-        <div class="logo-cell"><img src="assets/img/PDG.png" alt="PDG" loading="lazy"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/odebrecht.webp" alt="OEC - Odebrecht Engenharia e Construção" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/nova-lapa.webp" alt="Nova Lapa" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/norcon.webp" alt="Norcon" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/cosil.webp" alt="Cosil" width="360" height="180" loading="lazy" decoding="async"></div>
+        <div class="logo-cell"><img src="/assets/img/logos/pdg.webp" alt="PDG" width="360" height="180" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       MÉTODO VILA NOVA - seção escura + timeline de comando
+       A06 — MÉTODO VN (quatro blocos: síntese comunicacional,
+       não os cinco pilares oficiais)
        ============================================================ -->
   <section class="method" id="metodo" aria-labelledby="method-h">
     <div class="method-bg" aria-hidden="true"></div>
@@ -429,16 +407,15 @@
     <div class="method-inner">
       <div class="method-grid">
 
-        <!-- esquerda (~40%) -->
         <div class="method-left">
           <span class="eyebrow method-eyebrow reveal">Método Vila Nova</span>
-          <h2 id="method-h" class="method-title reveal">Planejamento como sistema de gestão, não como planilha de controle.</h2>
-          <p class="method-lead reveal">Um ciclo de leitura, organização e decisão para transformar cronograma em comando de obra.</p>
-          <p class="method-micro reveal">Do cronograma disperso ao comando da obra.</p>
+          <h2 id="method-h" class="method-title reveal">Planejamento que antecipa riscos, coordena decisões e protege resultados.</h2>
+          <p class="method-lead reveal">O Método VN conecta planejamento e gestão para que as organizações compreendam suas condições de execução, reconheçam riscos antecipadamente e tomem decisões com maior clareza e previsibilidade.</p>
+          <p class="method-micro reveal">Do planejamento que registra ao planejamento que orienta decisões.</p>
         </div>
 
-        <!-- direita (~60%) - timeline -->
         <div class="method-right">
+          <p class="method-sub reveal">Nossa lógica de atuação</p>
           <ol class="timeline reveal">
 
             <li class="tl-step">
@@ -448,8 +425,8 @@
                   <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6"/><path d="M12 .5v3.5M12 20v3.5M.5 12h3.5M20 12h3.5"/></svg>
                 </div>
                 <div class="tl-body">
-                  <div class="tl-head"><span class="tl-num">01.</span><h3 class="tl-title">Diagnosticar</h3></div>
-                  <p class="tl-desc">Leitura do cenário, interfaces, riscos, gargalos e pontos onde o resultado se perde.</p>
+                  <div class="tl-head"><span class="tl-num">01.</span><h3 class="tl-title">Compreender a realidade</h3></div>
+                  <p class="tl-desc">Identificar as condições de execução, os riscos, as restrições e as fragilidades que comprometem os resultados.</p>
                 </div>
               </div>
             </li>
@@ -461,8 +438,8 @@
                   <svg viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="1.5" y="16.5" width="6" height="5" rx="1"/><rect x="16.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v3.5M4.5 16.5v-2.5h15v2.5"/></svg>
                 </div>
                 <div class="tl-body">
-                  <div class="tl-head"><span class="tl-num">02.</span><h3 class="tl-title">Organizar</h3></div>
-                  <p class="tl-desc">Estruturação da lógica executiva, rotinas de governança e cadência de decisão.</p>
+                  <div class="tl-head"><span class="tl-num">02.</span><h3 class="tl-title">Estruturar a coordenação</h3></div>
+                  <p class="tl-desc">Conectar planejamento, responsabilidades e interfaces para orientar a execução de forma integrada.</p>
                 </div>
               </div>
             </li>
@@ -474,8 +451,8 @@
                   <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="13" width="2.5" height="5"/><rect x="11.5" y="10" width="2.5" height="8"/><rect x="16" y="14.5" width="2.5" height="3.5"/><path d="M7.5 10l4.5-3 5 3"/><circle cx="7.5" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="17" cy="10" r="1"/></svg>
                 </div>
                 <div class="tl-body">
-                  <div class="tl-head"><span class="tl-num">03.</span><h3 class="tl-title">Dar visibilidade</h3></div>
-                  <p class="tl-desc">Transformação de dados dispersos em informação clara para liderança e operação.</p>
+                  <div class="tl-head"><span class="tl-num">03.</span><h3 class="tl-title">Antecipar e dar visibilidade</h3></div>
+                  <p class="tl-desc">Evidenciar desvios, tendências e decisões necessárias antes que seus efeitos se consolidem.</p>
                 </div>
               </div>
             </li>
@@ -487,8 +464,8 @@
                   <svg viewBox="0 0 24 24"><path d="M12 2.5l8 3.2v5.3c0 4.5-3.3 7.8-8 9-4.7-1.2-8-4.5-8-9V5.7z"/><path d="M8.5 12l2.4 2.4L15.5 9.5"/></svg>
                 </div>
                 <div class="tl-body">
-                  <div class="tl-head"><span class="tl-num">04.</span><h3 class="tl-title">Proteger resultado</h3></div>
-                  <p class="tl-desc">Plano de ação para prazo, prioridade, previsibilidade e recuperação de desvios.</p>
+                  <div class="tl-head"><span class="tl-num">04.</span><h3 class="tl-title">Fortalecer decisões</h3></div>
+                  <p class="tl-desc">Transformar informações em ações coordenadas, ampliando a previsibilidade e a capacidade de proteger resultados.</p>
                 </div>
               </div>
             </li>
@@ -501,63 +478,91 @@
   </section>
 
   <!-- ============================================================
-       DIAGNÓSTICO - seção clara + card de relatório executivo
+       A07 — AVALIE SUA OBRA (instrumento digital)
+       Nome interno: Autodiagnóstico VN. Chamada pública: AVALIE SUA OBRA.
        ============================================================ -->
-  <section class="diag sec-ivory" id="diagnostico" aria-labelledby="diag-h">
+  <section class="diag avalie sec-ivory" id="avalie-sua-obra" aria-labelledby="diag-h">
     <div class="diag-bg" aria-hidden="true"></div>
 
     <div class="diag-inner">
       <div class="diag-grid">
 
-        <!-- esquerda (~45%) -->
         <div class="diag-left">
-          <span class="eyebrow diag-eyebrow reveal">Diagnóstico</span>
-          <h2 id="diag-h" class="diag-title reveal">Sua obra está entregando o resultado que foi prometido?</h2>
-          <p class="diag-lead reveal">Vamos identificar onde prazo, informação e decisão estão deixando o resultado escapar.</p>
+          <span class="eyebrow diag-eyebrow reveal">Avalie sua obra</span>
+          <h2 id="diag-h" class="diag-title reveal">Sua obra está mesmo sob controle?</h2>
+          <p class="diag-lead reveal">Você sabe o que pode comprometer os próximos meses da sua obra ou costuma descobrir quando o problema já aconteceu?</p>
+          <p class="diag-lead reveal">Responda a 15 perguntas sobre situações comuns em obras e descubra onde sua operação pode estar mais exposta a problemas que comprometem prazo, produtividade e resultados.</p>
+          <ul class="diag-facts reveal" aria-label="Sobre a avaliação">
+            <li>15 perguntas</li><li>Cerca de 5 minutos</li><li>Gratuito</li><li>Resultado personalizado</li>
+          </ul>
         </div>
 
-        <!-- direita (~55%) - card de relatório -->
         <div class="diag-right reveal">
           <article class="report">
-
             <div class="report-top">
               <div class="report-brand">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M9.3 20V4M14.6 20v-6M20 20V8"/></svg>
-                <span>Planejamento • Controle • Resultado</span>
-              </div>
-              <div class="report-meta">
-                <b>Relatório executivo</b>
-                <span>N° 2024.05.17</span>
+                <span>VN Consultoria · Autodiagnóstico</span>
               </div>
             </div>
 
             <div class="report-rule" aria-hidden="true"></div>
 
-            <h3 class="report-title">Diagnóstico executivo</h3>
-
-            <span class="report-pill">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg>
-              Prazo em atenção
-            </span>
-
-            <p class="report-text">Se existem atrasos recorrentes, mudanças constantes de prioridade ou dificuldade para prever o futuro do projeto, o problema pode estar antes da execução.</p>
+            <h3 class="report-title">O que pode estar ameaçando os resultados da sua obra?</h3>
+            <p class="report-text">Reconheça situações que merecem atenção na sua operação.</p>
 
             <ul class="report-check">
-              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Atrasos recorrentes mesmo após replanejamento</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Decisões críticas sem visão integrada</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Interfaces e prioridades competindo entre si</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Falta de clareza sobre o plano de recuperação</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Compromissos que não se sustentam</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Problemas que chegam tarde</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Equipes impedidas de produzir</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Áreas que não se coordenam</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span> Decisões sem informação confiável</li>
             </ul>
 
+            <p class="report-fine">Uma leitura indicativa baseada nas suas respostas, sem substituir uma avaliação técnica profissional.</p>
+
             <div class="report-actions">
-              <a class="btn-report" href="#contato">
-                Solicitar diagnóstico
+              <a class="btn-report" href="#avalie-sua-obra" data-avalie-start>
+                Descobrir os pontos de atenção da minha obra
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <span class="report-note">Análise preliminar</span>
             </div>
-
           </article>
+        </div>
+
+      </div>
+
+      <!-- instrumento: montado por js/avalie/app.js -->
+      <div class="avalie-app" id="avalie-app" hidden></div>
+      <noscript><p class="avalie-noscript">A avaliação interativa precisa de JavaScript ativado no navegador.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       A08 — SOBRE MARINA VILA NOVA (seção nova, sem CTA próprio)
+       ============================================================ -->
+  <section class="marina" id="marina" aria-labelledby="marina-h">
+    <div class="marina-bg" aria-hidden="true"></div>
+    <div class="marina-inner">
+      <div class="marina-grid">
+
+        <div class="marina-copy">
+          <span class="eyebrow marina-eyebrow reveal">Por trás da VN Consultoria</span>
+          <h2 id="marina-h" class="marina-title reveal"><span>Marina Vila Nova.</span> Experiência, visão crítica e decisões que protegem resultados.</h2>
+          <div class="marina-text reveal">
+            <p>Engenheira de Produção, com mais de 15 anos de experiência em planejamento e gestão de obras, Marina Vila Nova construiu sua trajetória atuando em empreendimentos de diferentes portes e complexidades, conectando execução, prazo, riscos e decisões.</p>
+            <p>Seu trabalho é marcado pela capacidade de interpretar cenários complexos, questionar premissas, identificar fragilidades e transformar informações técnicas em clareza para quem responde pelos resultados.</p>
+            <p>À frente da VN Consultoria, aplica esse repertório por meio de uma metodologia própria, orientada à governança do prazo, à previsibilidade e à proteção dos resultados dos empreendimentos.</p>
+          </div>
+          <figure class="marina-quote reveal">
+            <blockquote>“O planejamento só cumpre seu papel quando ajuda a tomar decisões enquanto ainda existe tempo para mudar o resultado.”</blockquote>
+            <figcaption><b>Marina Vila Nova</b> - Fundadora da VN Consultoria</figcaption>
+          </figure>
+        </div>
+
+        <div class="marina-photo reveal">
+          <div class="marina-halo" aria-hidden="true"></div>
+          <img src="/assets/img/marina-vila-nova.webp" alt="Marina Vila Nova, fundadora da VN Consultoria" width="960" height="1280" loading="lazy" decoding="async">
         </div>
 
       </div>
@@ -565,7 +570,7 @@
   </section>
 
   <!-- ============================================================
-       CTA FINAL - faixa escura de contato (acima do footer)
+       A09 — CONTATO
        ============================================================ -->
   <section class="cta" id="contato" aria-labelledby="cta-h">
     <div class="cta-bg" aria-hidden="true"></div>
@@ -573,53 +578,56 @@
     <div class="cta-inner">
       <div class="cta-grid">
 
-        <!-- esquerda -->
         <div class="cta-left">
           <span class="eyebrow cta-eyebrow reveal">Contato</span>
-          <h2 id="cta-h" class="cta-headline reveal">Toda recuperação começa com clareza.</h2>
+          <h2 id="cta-h" class="cta-headline reveal">O próximo resultado da sua obra começa com uma decisão.</h2>
         </div>
 
-        <!-- direita -->
         <div class="cta-right reveal">
-          <p class="cta-text">Converse com a equipe Vila Nova e descubra como transformar informações dispersas em decisões mais rápidas, maior previsibilidade e resultados mais protegidos.</p>
+          <p class="cta-text">Sua obra enfrenta desafios de prazo, coordenação ou previsibilidade? Vamos conversar sobre o cenário, os compromissos envolvidos e como a VN pode ajudar sua empresa a tomar decisões mais seguras.</p>
           <div class="cta-actions">
             <a class="btn btn-primary" href="https://wa.me/5571999666462" target="_blank" rel="noopener">
-              Entrar em contato
+              Conversar com a VN
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <button class="btn btn-ghost" type="button" id="emailToggle" aria-expanded="false" aria-controls="contactForm">Enviar e-mail</button>
           </div>
 
-          <!-- formulário inline (abre/fecha ao clicar em "Enviar e-mail") -->
           <div class="contact-panel" id="contactForm">
             <div class="contact-panel-inner">
               <form class="contact-form" novalidate>
                 <div class="cf-row">
                   <div class="cf-field">
                     <label class="cf-label" for="cf-name">Nome</label>
-                    <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required>
+                    <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Seu nome" autocomplete="name" maxlength="120" required aria-describedby="cf-name-error">
                     <span class="cf-error" id="cf-name-error"></span>
                   </div>
                   <div class="cf-field">
                     <label class="cf-label" for="cf-email">E-mail</label>
-                    <input class="cf-input" id="cf-email" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" required>
+                    <input class="cf-input" id="cf-email" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" maxlength="160" required aria-describedby="cf-email-error">
                     <span class="cf-error" id="cf-email-error"></span>
                   </div>
                 </div>
                 <div class="cf-field">
-                  <label class="cf-label" for="cf-phone">Telefone</label>
-                  <input class="cf-input" id="cf-phone" name="phone" type="tel" placeholder="Seu telefone" autocomplete="tel">
+                  <label class="cf-label" for="cf-phone">Telefone <span class="cf-opt">(opcional)</span></label>
+                  <input class="cf-input" id="cf-phone" name="phone" type="tel" placeholder="Seu telefone" autocomplete="tel" maxlength="40">
                 </div>
                 <div class="cf-field">
                   <label class="cf-label" for="cf-message">Mensagem</label>
-                  <textarea class="cf-input cf-textarea" id="cf-message" name="message" placeholder="Digite sua mensagem" rows="4" required></textarea>
+                  <textarea class="cf-input cf-textarea" id="cf-message" name="message" placeholder="Digite sua mensagem" rows="4" maxlength="4000" required aria-describedby="cf-message-error"></textarea>
                   <span class="cf-error" id="cf-message-error"></span>
                 </div>
+                <p class="cf-ref" id="cf-ref" hidden></p>
+                <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <label class="cf-consent" for="cf-consent">
                   <input class="cf-check" id="cf-consent" name="consent" type="checkbox" required>
-                  <span>Eu concordo em receber comunicações e aceito a <a href="/politica-de-privacidade">Política de Privacidade</a>.</span>
+                  <span>Autorizo o uso dos meus dados para responder a esta mensagem, conforme a <a href="/politica-de-privacidade">Política de Privacidade</a>.</span>
                 </label>
-                <button class="btn btn-primary cf-submit" type="submit" disabled>Enviar mensagem</button>
+                <label class="cf-consent cf-consent--opt" for="cf-marketing">
+                  <input class="cf-check" id="cf-marketing" name="marketing" type="checkbox">
+                  <span>Quero receber conteúdos e comunicações da VN Consultoria (opcional).</span>
+                </label>
+                <button class="btn btn-primary cf-submit" type="submit" aria-disabled="true">Enviar mensagem</button>
                 <p class="cf-feedback" role="status" aria-live="polite"></p>
               </form>
             </div>
@@ -629,6 +637,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ============================================================
        FOOTER institucional
@@ -638,18 +647,18 @@
       <div class="foot-grid">
 
         <div class="foot-brand">
-          <img src="assets/img/logo-modelo4-trim.png" alt="Vila Nova">
+          <img src="/assets/img/logo-rodape.webp" alt="Vila Nova" width="422" height="229" loading="lazy">
           <p class="foot-tagline">Planejamento que protege <span>resultados</span></p>
           <div class="foot-social">
             <span class="foot-label">Nos acompanhe</span>
             <div class="foot-social-links">
-              <a class="foot-soc" href="#" aria-label="LinkedIn da Vila Nova">
+              <a class="foot-soc" href="#" aria-label="LinkedIn da VN Consultoria">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.4 8.65 22 11 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21h-4z"/></svg>
               </a>
-              <a class="foot-soc" href="#" aria-label="Instagram da Vila Nova">
+              <a class="foot-soc" href="#" aria-label="Instagram da VN Consultoria">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
               </a>
-              <a class="foot-soc" href="#" aria-label="Facebook da Vila Nova">
+              <a class="foot-soc" href="#" aria-label="Facebook da VN Consultoria">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V7.2c0-.9.2-1.2 1.2-1.2H17V3h-2.6C11.7 3 10.7 4.4 10.7 6.6V9H8.5v3.1h2.2V21H14v-8.9h2.4l.4-3.1z"/></svg>
               </a>
             </div>
@@ -659,11 +668,11 @@
         <nav class="foot-col" aria-label="Navegação do rodapé">
           <span class="foot-label">Navegação</span>
           <ul>
-            <li><a href="#servicos">Atuação</a></li>
-            <li><a href="#servicos">Soluções</a></li>
+            <li><a href="/o-que-fazemos">O que fazemos</a></li>
+            <li><a href="/segmentos">Segmentos</a></li>
             <li><a href="#metodo">Método</a></li>
-            <li><a href="#diagnostico">Diagnóstico</a></li>
-            <li><a href="#obras">Segmentos</a></li>
+            <li><a href="#avalie-sua-obra">Avalie sua obra</a></li>
+            <li><a href="/treinamentos">Treinamentos</a></li>
             <li><a href="#sobre">Sobre</a></li>
           </ul>
         </nav>
@@ -680,19 +689,33 @@
       </div>
 
       <div class="foot-bottom">
-        <span class="foot-copy">© 2026 Vila Nova. Todos os direitos reservados.</span>
+        <span class="foot-copy">© 2026 Vila Nova Consultoria e Engenharia Ltda · CNPJ 28.113.227/0001-62</span>
         <div class="foot-legal">
           <a href="/politica-de-privacidade">Política de Privacidade</a>
           <a href="/termos-de-uso">Termos de Uso</a>
+          <button class="foot-cookie" type="button" data-cookie-prefs>Preferências de cookies</button>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=1785253428"></script>
+  <!-- Aviso de cookies: discreto, na base da tela. Nada opcional roda antes do "Aceitar". -->
+  <div class="ck" id="cookieBanner" role="region" aria-label="Aviso de cookies" hidden>
+    <p class="ck-text">Usamos cookies essenciais para o funcionamento do site e, com a sua permissão, cookies e tecnologias de análise para entender como ele é utilizado. Saiba mais na <a href="/politica-de-privacidade#cookies">Política de Privacidade</a>.</p>
+    <div class="ck-actions">
+      <button class="ck-btn ck-btn--ghost" type="button" data-cookie="rejeitado">Rejeitar</button>
+      <button class="ck-btn" type="button" data-cookie="aceito">Aceitar</button>
+    </div>
+  </div>
+
   <!-- WhatsApp flutuante -->
   <a class="wa-float" href="https://wa.me/5571999666462" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.14-.19.29-.74.93-.91 1.12-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.6-2-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.56-.89-2.14-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01s-.51.07-.77.36c-.26.29-1.01.99-1.01 2.41 0 1.42 1.04 2.8 1.18 2.99.15.19 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.23.85.86-3.15-.2-.32a8.24 8.24 0 0 1-1.26-4.4c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24z"/></svg>
   </a>
+
+  <script src="/js/main.js?v=20261120" defer></script>
+  <link rel="modulepreload" href="/js/avalie/conteudo.js">
+  <link rel="modulepreload" href="/js/avalie/motor.js">
+  <script type="module" src="/js/avalie/app.js?v=20261120"></script>
 </body>
 </html>
