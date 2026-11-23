@@ -4,7 +4,7 @@
    - dominio: status do domínio do remetente no Resend ("verified", "pending", "not_started"...),
      ou "sem_permissao" se a chave for só de envio (nesse caso, ver no painel do Resend). */
 
-import { MAIL_FROM } from './_lib/util.js';
+import { MAIL_FROM, DB_URL } from './_lib/util.js';
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -17,7 +17,11 @@ export default async function handler(req, res) {
       const r = await fetch('https://api.resend.com/domains', {
         headers: { Authorization: `Bearer ${key}` }, signal: AbortSignal.timeout(5000),
       });
-      if (r.status === 401 || r.status === 403) dominio = 'sem_permissao';
+      if (r.status === 401 || r.status === 403) {
+        // Chave só de envio responde "restricted_api_key"; chave errada responde outro erro.
+        const corpo = await r.text();
+        dominio = /restricted/i.test(corpo) ? 'sem_permissao (chave de envio valida)' : 'chave_invalida';
+      }
       else if (r.ok) {
         const lista = (await r.json()).data || [];
         const d = lista.find(x => x.name === dominioRemetente);
@@ -27,6 +31,7 @@ export default async function handler(req, res) {
   }
   res.status(200).json({
     email: { chave: !!key, remetente, dominio },
-    banco: !!process.env.DATABASE_URL,
+    banco: !!DB_URL,
+    variaveisBanco: Object.keys(process.env).filter(k => /DATABASE|POSTGRES|PG|NEON/.test(k)).sort(),
   });
 }

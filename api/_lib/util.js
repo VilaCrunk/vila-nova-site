@@ -10,7 +10,10 @@ import { neon } from '@neondatabase/serverless';
 export const CONTACT_TO = process.env.CONTACT_TO || 'contato@vilanovaconsultoria.com';
 export const MAIL_FROM = process.env.MAIL_FROM || 'VN Consultoria <site@vilanovaconsultoria.com>';
 
-const sqlClient = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
+// A integração Neon pode criar a variável com outro nome ou prefixo (ex.: POSTGRES_URL, STORAGE_DATABASE_URL).
+export const DB_URL = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  || Object.entries(process.env).find(([k, v]) => /_(DATABASE|POSTGRES)_URL$/.test(k) && v)?.[1] || '';
+const sqlClient = DB_URL ? neon(DB_URL) : null;
 export const db = () => sqlClient;
 
 let schemaPronto = null;

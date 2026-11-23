@@ -283,7 +283,7 @@ function formCopia() {
           h('input', { name: 'nome', type: 'text', autocomplete: 'name', maxlength: '120' })),
         h('label', { class: 'av-field' }, h('span', {}, 'E-mail'),
           h('input', { name: 'email', type: 'email', autocomplete: 'email', required: true, maxlength: '160' })),
-        h('input', { class: 'hp', name: 'website', type: 'text', tabindex: '-1', autocomplete: 'off', 'aria-hidden': 'true' }),
+        h('input', { class: 'hp', name: 'vn_hp_7c', type: 'text', tabindex: '-1', autocomplete: 'off', 'data-lpignore': 'true', 'data-1p-ignore': true, 'aria-hidden': 'true' }),
         h('label', { class: 'av-check' }, h('input', { name: 'consentEnvio', type: 'checkbox', required: true }),
           h('span', {}, UI.consentEnvio.replace('Política de Privacidade', ''), h('a', { href: '/politica-de-privacidade', target: '_blank', rel: 'noopener' }, 'Política de Privacidade'), '.')),
         h('label', { class: 'av-check' }, h('input', { name: 'marketing', type: 'checkbox' }), h('span', {}, UI.consentMarketing)),
@@ -299,7 +299,7 @@ function formCopia() {
       const res = await fetch('/api/avaliacao', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ acao: 'copia', id: state.resultadoId, versao: VERSAO, contexto: state.contexto, respostas: state.respostas,
-          nome: String(d.get('nome') || '').trim(), email, marketing: !!d.get('marketing'), website: d.get('website') || '' }),
+          nome: String(d.get('nome') || '').trim(), email, marketing: !!d.get('marketing'), website: d.get('vn_hp_7c') || '' }),
       });
       if (!res.ok) throw new Error(String(res.status));
       fb.textContent = UI.copiaEnviada; form.reset();

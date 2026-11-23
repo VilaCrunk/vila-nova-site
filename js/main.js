@@ -205,7 +205,7 @@
       submitBtn.textContent = 'Enviando…';
       const phoneEl = document.getElementById('cf-phone');
       const mkt = document.getElementById('cf-marketing');
-      const hp = contactForm.querySelector('input[name="website"]');
+      const hp = contactForm.querySelector('input[name="vn_hp_7c"]');
       const payload = {
         name: fields.name.value.trim(),
         email: fields.email.value.trim(),
