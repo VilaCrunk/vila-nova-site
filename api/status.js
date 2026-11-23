@@ -1,8 +1,10 @@
-/* Diagnóstico do envio de e-mails, sem expor segredos.
-   GET /api/status → { email: { chave, remetente, dominio }, banco }
+/* Diagnóstico do envio de e-mails e do banco, sem expor segredos.
+   GET /api/status → { email: { chave, remetente, dominio }, banco, variaveisBanco }
    - chave: RESEND_API_KEY está definida neste deploy
-   - dominio: status do domínio do remetente no Resend ("verified", "pending", "not_started"...),
-     ou "sem_permissao" se a chave for só de envio (nesse caso, ver no painel do Resend). */
+   - dominio: status do domínio do remetente no Resend ("verified", "pending"...);
+     "sem_permissao (chave de envio valida)" quando a chave é só de envio (normal);
+     "chave_invalida" quando o Resend recusa a chave
+   - banco: há URL do Neon neste ambiente; variaveisBanco lista só os NOMES das variáveis. */
 
 import { MAIL_FROM, DB_URL } from './_lib/util.js';
 
