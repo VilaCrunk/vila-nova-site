@@ -1,0 +1,13 @@
+{
+  "name": "vila-nova-site",
+  "private": true,
+  "type": "module",
+  "description": "Site institucional da VN Consultoria — estático (HTML/CSS/JS) + funções serverless na Vercel.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1"
+  }
+}
