@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   const b = req.body;
   // Anti-spam silencioso: campo-isca preenchido ou envio rápido demais → finge sucesso.
-  if (b.website || (typeof b.elapsed === 'number' && b.elapsed < 2500)) return res.status(200).json({ ok: true });
+  if (b.website || (typeof b.elapsed === 'number' && b.elapsed < 2500)) { console.warn('contato: descartado como spam', b.website ? 'honeypot' : 'rapido'); return res.status(200).json({ ok: true }); }
 
   const nome = texto(b.name, 120);
   const email = texto(b.email, 160);

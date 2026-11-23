@@ -21,6 +21,7 @@ Não criar copy por conta própria; microcopy de interface nova deve ser validad
 ## Backend (Vercel)
 - `api/contato.js` — formulário de contato → grava no Neon e envia e-mail via Resend.
 - `api/avaliacao.js` — eventos do quiz (só com cookies aceitos), resultado anônimo, cópia por e-mail.
+- `api/status.js` — GET `/api/status`: diz se a chave do Resend existe e se o domínio do remetente está verificado (sem expor segredos).
 - Variáveis de ambiente: `DATABASE_URL` (Neon, via Vercel Storage), `RESEND_API_KEY`,
   opcionais `CONTACT_TO` (padrão contato@vilanovaconsultoria.com) e `MAIL_FROM`.
   As tabelas são criadas automaticamente na primeira requisição.

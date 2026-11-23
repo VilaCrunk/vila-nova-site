@@ -5,7 +5,7 @@
    O servidor recalcula o resultado com o mesmo motor do navegador: nada do texto enviado é confiado. */
 
 import { validarRequisicao, limitar, texto, emailValido, uuidValido, esc, enviarEmail, garantirSchema, db } from './_lib/util.js';
-import { interpretar, validarRespostas, perfilDe } from '../js/avalie/motor.js';
+import { interpretar, validarRespostas, perfilDe, complementares } from '../js/avalie/motor.js';
 import { CONTEXTO, SITUACOES, RESULTADOS_ESPECIAIS, TEXTOS, VERSAO, UI } from '../js/avalie/conteudo.js';
 
 const ETAPAS = new Set(['inicio', 'contexto', 'S1', 'S2', 'S3', 'S4', 'S5', 'revisao', 'resultado']);
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
   }
 
   if (b.acao === 'copia') {
-    if (b.website) return res.status(200).json({ ok: true });
+    if (b.website) { console.warn('avaliacao:copia honeypot preenchido'); return res.status(200).json({ ok: true }); }
     if (!limitar(req, 'copia', 3, 10 * 60 * 1000)) return res.status(429).json({ ok: false, erro: 'limite' });
     const email = texto(b.email, 160);
     const nome = texto(b.nome, 120);
@@ -93,20 +93,24 @@ function emailResultado(r, nome) {
   const esp = RESULTADOS_ESPECIAIS[r.tipo];
   const titulo = esp ? esp.titulo : r.destaques.map(id => perfilDe(id).titulo).join(' · ');
   const P = (t, s = '') => `<p style="margin:0 0 12px;${s}">${esc(t)}</p>`;
-  const perfis = r.destaques.map(id => {
+  const extras = complementares(r);
+  const bloco = (id) => {
     const p = perfilDe(id); const s = r.porSituacao.find(x => x.id === id);
     const caps = s.capacidades.map(c => `${c.nome} — ${c.capacidade}`).join('; ');
-    return `<div style="border-left:3px solid #9c6a1c;padding:12px 16px;margin:0 0 14px;background:#faf7f1">
+    return `<div style="border-left:3px solid #8a5c16;padding:12px 16px;margin:0 0 14px;background:#faf7f1">
       <p style="margin:0 0 6px;color:#565049;font-size:12px">${esc(s.nome)} · ${esc(s.rotulo)}</p>
       <p style="margin:0 0 10px;font-size:17px"><b>${esc(p.titulo)}</b></p>
       <p style="margin:0 0 6px"><b>${esc(UI.oQueIndica)}:</b> ${esc(p.relatada)}</p>
       ${caps ? `<p style="margin:0 0 6px"><b>${esc(UI.capacidade)}:</b> ${esc(caps)}</p>` : ''}
       <p style="margin:0 0 6px"><b>${esc(UI.oQueCompromete)}:</b> ${esc(p.consequencia)}</p>
       <p style="margin:0"><b>${esc(UI.primeiroMovimento)}:</b> ${esc(p.movimento)}</p></div>`;
-  }).join('');
-  const mapa = r.porSituacao.map(s => `<tr><td style="padding:6px 10px 6px 0">${esc(s.nome)}</td><td style="padding:6px 0;color:#9c6a1c"><b>${esc(s.rotulo)}</b></td></tr>`).join('');
+  };
+  const perfis = r.destaques.map(bloco).join('') + (extras.length
+    ? `<p style="margin:18px 0 8px;font-size:11px;letter-spacing:.14em;color:#565049"><b>${esc(UI.complementares.toUpperCase())}</b></p>` + extras.map(bloco).join('')
+    : '');
+  const mapa = r.porSituacao.map(s => `<tr><td style="padding:6px 10px 6px 0">${esc(s.nome)}</td><td style="padding:6px 0;color:#8a5c16"><b>${esc(s.rotulo)}</b></td></tr>`).join('');
   const html = `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.55;color:#201e1a;max-width:620px">
-    <p style="margin:0 0 4px;font-size:11px;letter-spacing:.14em;color:#9c6a1c">VN CONSULTORIA · AVALIE SUA OBRA</p>
+    <p style="margin:0 0 4px;font-size:11px;letter-spacing:.14em;color:#8a5c16">VN CONSULTORIA · AVALIE SUA OBRA</p>
     ${nome ? P('Olá, ' + nome + '.') : ''}
     <h1 style="font-size:22px;margin:8px 0 14px">${esc(titulo)}</h1>
     ${esp ? P(esp.texto) : ''}
@@ -118,7 +122,7 @@ function emailResultado(r, nome) {
     ${P(TEXTOS.aviso, 'color:#565049;font-size:12.5px')}
     <p style="margin:18px 0 0;font-size:12px;color:#565049">VN Consultoria · Planejamento que Protege Resultados · contato@vilanovaconsultoria.com · (71) 99966-6462</p></div>`;
   const text = [titulo, esp ? esp.texto : '', '', UI.mapaTitulo + ':', ...r.porSituacao.map(s => `- ${s.nome}: ${s.rotulo}`), '',
-    ...r.destaques.map(id => { const p = perfilDe(id); return `${p.titulo}\n${UI.oQueIndica}: ${p.relatada}\n${UI.oQueCompromete}: ${p.consequencia}\n${UI.primeiroMovimento}: ${p.movimento}\n`; }),
+    ...[...r.destaques, ...extras].map(id => { const p = perfilDe(id); return `${p.titulo}\n${UI.oQueIndica}: ${p.relatada}\n${UI.oQueCompromete}: ${p.consequencia}\n${UI.primeiroMovimento}: ${p.movimento}\n`; }),
     TEXTOS.ressalva, TEXTOS.aviso].join('\n');
   return { html, text };
 }

@@ -6,7 +6,7 @@
    ============================================================= */
 
 import { SITUACOES, RESPOSTAS, CONTEXTO, TEXTOS, UI, RESULTADOS_ESPECIAIS, VERSAO } from './conteudo.js';
-import { interpretar, perfilDe } from './motor.js';
+import { interpretar, perfilDe, complementares } from './motor.js';
 
 const ETAPA_CONTEXTO = 0;
 const ETAPA_REVISAO = SITUACOES.length + 1;
@@ -84,6 +84,14 @@ function fechar() {
 }
 startBtns.forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); abrir(); }));
 if (location.hash === '#avalie-sua-obra') setTimeout(abrir, 60);
+// Links do menu/rodapé para "Avalie sua obra" já abrem o autodiagnóstico.
+document.addEventListener('click', (e) => {
+  const link = e.target.closest && e.target.closest('a[href="#avalie-sua-obra"], a[href="/#avalie-sua-obra"]');
+  if (!link || link.hasAttribute('data-avalie-start') || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  e.preventDefault();
+  if (location.hash !== '#avalie-sua-obra') history.pushState(null, '', '#avalie-sua-obra');
+  abrir();
+});
 
 function irPara(etapa) {
   state.etapa = etapa; save(); render();
@@ -229,8 +237,7 @@ function etapaResultado() {
   const especial = RESULTADOS_ESPECIAIS[r.tipo];
   const titulo = especial ? especial.titulo : r.destaques.map(id => perfilDe(id).titulo).join(' · ');
   const eyebrow = especial ? 'Resultado' : (r.destaques.length > 1 ? UI.maioresAtencoes : UI.maiorAtencao);
-  const tecnico = state.contexto.papel === 'tecnico';
-  const nomes = (ids) => ids.map(id => SITUACOES.find(s => s.id === id).nome).join(', ');
+  const extras = complementares(r);
 
   return h('div', { class: 'av-body av-result' },
     h('p', { class: 'av-eyebrow' }, eyebrow),
@@ -239,15 +246,16 @@ function etapaResultado() {
     r.leituraLimitada ? h('p', { class: 'av-note' }, UI.geralLimitada) : null,
     mapa(r),
     r.destaques.length ? h('div', { class: 'av-profiles' }, r.destaques.map(id => blocoPerfil(id, r))) : null,
-    r.combinadas.length ? h('p', { class: 'av-note' }, 'Também com ocorrências declaradas: ', h('b', {}, nomes(r.combinadas)), '.') : null,
+    extras.length ? h('section', { class: 'av-extras', 'aria-labelledby': 'av-extras-h' },
+      h('h4', { id: 'av-extras-h', class: 'av-sub' }, UI.complementares),
+      h('div', { class: 'av-profiles' }, extras.map(id => blocoPerfil(id, r)))) : null,
     h('div', { class: 'av-disclaimer' }, h('p', {}, TEXTOS.ressalva), h('p', {}, TEXTOS.aviso)),
     h('section', { class: 'av-next' },
-      h('p', {}, tecnico ? TEXTOS.conversaoTecnico : TEXTOS.conversaoDecisor),
+      // CTA principal sempre é a conversa; treinamentos ficam em segundo plano (pedido da Marina).
+      h('p', {}, TEXTOS.conversaoDecisor),
       h('div', { class: 'av-next-actions' },
-        tecnico
-          ? h('a', { class: 'av-btn', href: '/treinamentos' }, TEXTOS.ctaTecnico, arrow())
-          : h('a', { class: 'av-btn', href: '#contato', onclick: irParaContato }, TEXTOS.ctaDecisor, arrow()),
-        tecnico ? h('a', { class: 'av-link', href: '#contato', onclick: irParaContato }, TEXTOS.ctaDecisor) : null)),
+        h('a', { class: 'av-btn', href: '#contato', onclick: irParaContato }, TEXTOS.ctaDecisor, arrow()),
+        h('a', { class: 'av-link', href: '/treinamentos' }, TEXTOS.ctaTecnico))),
     formCopia(),
     h('div', { class: 'av-foot av-foot--result' },
       h('button', { class: 'av-btn av-btn--ghost', type: 'button', onclick: () => { state = novo(); save(); render(); registrarEvento('inicio'); } }, UI.refazer),

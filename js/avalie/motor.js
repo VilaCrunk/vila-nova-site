@@ -135,3 +135,12 @@ export function perfilDe(id) {
   const s = SITUACOES.find(x => x.id === id);
   return s ? s.perfil : null;
 }
+
+/** Situações que não são destaque mas têm ocorrências ou sinais de atenção declarados.
+ *  Exibidas como leitura complementar (perfil completo), depois dos destaques. */
+export function complementares(r) {
+  const com = new Set(r.combinadas);
+  return r.porSituacao
+    .filter(s => !r.destaques.includes(s.id) && (com.has(s.id) || ['recorrente', 'sinal', 'atencao'].includes(s.nivel)))
+    .map(s => s.id);
+}

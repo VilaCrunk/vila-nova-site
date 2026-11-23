@@ -125,6 +125,21 @@
     };
     document.addEventListener('vn:abrir-contato', (e) => { showRef(e.detail && e.detail.avaliacao); openPanel(false); });
 
+    // Todo CTA de conversa (links para #contato) abre o formulário de e-mail.
+    // O WhatsApp fica só no botão "Conversar com a VN agora" da seção de contato.
+    const irParaFormulario = () => {
+      document.getElementById('contato').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      openPanel(true);
+    };
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest && e.target.closest('a[href="#contato"], a[href="/#contato"]');
+      if (!link || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      if (location.hash !== '#contato') history.pushState(null, '', '#contato');
+      irParaFormulario();
+    });
+    if (location.hash === '#contato') setTimeout(irParaFormulario, 120);
+
     const fields = {
       name: document.getElementById('cf-name'),
       email: document.getElementById('cf-email'),

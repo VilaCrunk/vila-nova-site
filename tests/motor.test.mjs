@@ -2,7 +2,7 @@
 // Rodar: node --test tests/
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { interpretar, classificarSituacao, validarRespostas } from '../js/avalie/motor.js';
+import { interpretar, classificarSituacao, validarRespostas, complementares } from '../js/avalie/motor.js';
 import { SITUACOES } from '../js/avalie/conteudo.js';
 
 const CTX = { papel: 'gerente', unidade: 'obra' };
@@ -146,4 +146,25 @@ test('Varredura: todas as 4^3 combinações por situação produzem um nível v�
     assert.ok(['baixa', 'atencao', 'sinal', 'recorrente', 'insuficiente'].includes(nivel));
     if (cont.N >= 2 && cont.F === 0) assert.equal(nivel, 'insuficiente');
   }
+});
+
+test('complementares: situação principal + outras com atenção aparecem como leitura complementar', () => {
+  const ctx = { papel: 'decisor', unidade: 'obra' };
+  const resp = {};
+  SITUACOES.forEach((s, i) => s.questoes.forEach((q, k) => {
+    // S1: 2 frequentes (principal); S3: 2 "às vezes" (atenção); demais: raramente.
+    resp[q.id] = i === 0 ? (k < 2 ? 'F' : 'R') : i === 2 ? (k < 2 ? 'A' : 'R') : 'R';
+  }));
+  const r = interpretar(ctx, resp);
+  assert.equal(r.tipo, 'principal');
+  assert.deepEqual(r.destaques, ['S1']);
+  assert.deepEqual(complementares(r), ['S3']);
+});
+
+test('complementares: baixa ocorrência não fabrica leitura complementar', () => {
+  const resp = {};
+  SITUACOES.forEach(s => s.questoes.forEach(q => { resp[q.id] = 'R'; }));
+  const r = interpretar({ papel: 'decisor', unidade: 'obra' }, resp);
+  assert.equal(r.tipo, 'baixa');
+  assert.deepEqual(complementares(r), []);
 });
