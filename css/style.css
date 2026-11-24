@@ -1831,10 +1831,6 @@ i[data-r="N"] { background: repeating-linear-gradient(45deg, #fff, #fff 3px, #cf
 .marina-title span { color: var(--amber-bright); }
 .marina-text p { font-size: 15.5px; line-height: 1.7; color: rgba(236,231,222,.74); max-width: 60ch; }
 .marina-text p + p { margin-top: 14px; }
-.marina-quote { margin-top: clamp(28px,4vw,40px); padding: 22px 26px; border-left: 2px solid var(--amber); border-radius: 0 12px 12px 0; background: linear-gradient(90deg, rgba(214,154,78,.08), transparent 85%); }
-.marina-quote blockquote { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.9vw,23px); line-height: 1.38; color: var(--headline); }
-.marina-quote figcaption { margin-top: 12px; font-size: 12.5px; letter-spacing: .04em; color: var(--warm-gray); }
-.marina-quote figcaption b { color: var(--amber-bright); font-weight: 600; }
 .marina-photo { position: relative; align-self: end; display: flex; justify-content: center; }
 .marina-halo {
   position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
@@ -1923,3 +1919,15 @@ html.js .hero .reveal:not(.in) { opacity: .01; }
   .hdr-links { gap: 16px; }
   .hdr-links a { letter-spacing: .06em; }
 }
+
+/* Seção Marina sem citação e sem grade de fundo (ajuste Crunk, 24/11) */
+.marina-bg { background: radial-gradient(60% 70% at 78% 60%, rgba(214,154,78,.13), transparent 62%); }
+@media (min-width: 861px) {
+  .marina-grid { grid-template-columns: 1.05fr .95fr; align-items: stretch; }
+  .marina-copy { align-self: center; padding: 0 0 clamp(32px,4vw,56px); }
+  .marina-photo img { width: min(100%, 500px); }
+}
+@media (max-width: 860px) {
+  .marina-copy { padding-bottom: clamp(56px,12vw,80px); }
+}
+.marina-inner { padding-top: clamp(36px,4vw,60px); }
