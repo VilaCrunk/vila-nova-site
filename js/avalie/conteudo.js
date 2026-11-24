@@ -214,7 +214,7 @@ export const UI = {
   receberCopia: 'Receber uma cópia do resultado por e-mail',
   enviarCopia: 'Enviar cópia',
   complementares: 'Também com ocorrências declaradas', // [UI] reaproveita a nota anterior
-  copiaEnviada: 'Pronto. A cópia do resultado foi enviada para o seu e-mail.',
+  copiaEnviada: 'Pronto. A cópia do resultado foi enviada para o seu e-mail. Caso não chegue na caixa de entrada, confira o seu lixo eletrônico.',
   copiaErro: 'Não foi possível enviar agora. Tente novamente em instantes.',
   consentEnvio: 'Autorizo o uso do meu e-mail para receber esta cópia do resultado, conforme a Política de Privacidade.',
   consentMarketing: 'Quero receber conteúdos e comunicações da VN Consultoria (opcional).',
